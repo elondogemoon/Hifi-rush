@@ -1194,6 +1194,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755285799581625884}
+  - component: {fileID: 919132149216866435}
+  - component: {fileID: 919132149216866437}
   m_Layer: 0
   m_Name: samuraiEnemy
   m_TagString: Untagged
@@ -1218,6 +1220,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &919132149216866435
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375805216505066662}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 81cb8b74fc7806641ad81697958ac308, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132149216866437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375805216505066662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f093f01e1ac73f4b9e813a6cdd38e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1376840363740625281
 GameObject:
   m_ObjectHideFlags: 0
@@ -8470,7 +8505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7683165163435162895, guid: 4614e2e1a1923364483471b5c0c23b0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.012
+      value: 0.105
       objectReference: {fileID: 0}
     - target: {fileID: 7683165163435162895, guid: 4614e2e1a1923364483471b5c0c23b0b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8478,7 +8513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7683165163435162895, guid: 4614e2e1a1923364483471b5c0c23b0b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.381
+      value: -0.096
       objectReference: {fileID: 0}
     - target: {fileID: 7683165163435162895, guid: 4614e2e1a1923364483471b5c0c23b0b, type: 3}
       propertyPath: m_LocalRotation.w

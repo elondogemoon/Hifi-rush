@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,86 +6,48 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private Vector3 moveVector;
-    [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float runSpeed = 1f;
-    [SerializeField] private float gravity = 40f;
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float _MoveSpeed = 5.0f;
+    [SerializeField] private float _RotateSpeed = 1.0f;
+    [SerializeField] private Animator _Animator;
+    Vector3 moveDirection;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private float turnSpeed = 1.0f;
+    
+    private CharacterController _CharacterController;
 
-    float maxDistance = 0.1f;
-
-    public Transform cameraAngle;
-    private Vector2 mouseDelta;
-    private CharacterController controller;
-    private Animator animator;
-
-
-
-    public float mouseSensitivity = 10f;
-    private float xRotation = 0f; 
-
-   
-
-
-    private void Start()
+    private void Awake()
     {
-        controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-        
+        _CharacterController = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
-        if (!IsGrounded())
-            moveVector.y -= gravity * Time.deltaTime;
-        controller.Move(transform.TransformDirection(moveVector) * moveSpeed * runSpeed * Time.deltaTime);
-        SetAnimator();
+        float x = Input.GetAxisRaw("Vertical");
+        float z = Input.GetAxisRaw("Horizontal");
+        float r = Input.GetAxis("Mouse X");
 
-        Debug.DrawRay(transform.position, -transform.up * maxDistance, Color.red);
-    }
+        //moveDirection = new Vector3(-x, 0, z).normalized;
 
-    
+        // 입력값에 따라 캐릭터를 회전시킵니다.
+        if (x != 0 || z != 0)
+        {
+            Vector3 cameraForward = virtualCamera.transform.forward;
+            cameraForward.y = 0f; // y 축은 회전하지 않도록 설정합니다.
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        Debug.Log("?");
-        moveVector = context.ReadValue<Vector3>();
-    }
-    public void OnRun(InputAction.CallbackContext context)
-    {
-        if (context.started) runSpeed = 2f;
-        else if (context.performed) { }
-        else if (context.canceled) runSpeed = 1f;
-    }
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        mouseDelta = context.ReadValue<Vector2>();
-        //수평 회전
-        float mouseX = mouseDelta.x * mouseSensitivity * Time.deltaTime;
-        transform.Rotate(Vector3.up * mouseX);
+            Vector3 moveDirection = -z * cameraForward + x * virtualCamera.transform.right;
 
-        //수직 회전
-        float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -89f, 89f);
-        cameraAngle.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-    }
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (IsGrounded()) moveVector.y = jumpForce;
-    }
-  
+            if (moveDirection != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(moveDirection.normalized);
+                transform.rotation = targetRotation;
+            }
+            _CharacterController.Move(-transform.right * _MoveSpeed * Time.deltaTime);
+            
+        }
+        float moveMagnitude = new Vector2(x, z).magnitude;
+        _Animator.SetFloat("MoveSpeed", moveMagnitude);
 
-    private void SetAnimator()
-    {
-        animator.SetBool("isMove",true);
-    }
-
-    private bool IsGrounded()
-    {
-        RaycastHit hit;
-        Physics.Raycast(transform.position, -transform.up, out hit, maxDistance);
-        if (hit.collider != null) { /*Debug.Log(hit.collider.name);*/ return true; }
-        else { /*Debug.Log("안부딫힘");*/ return false; }
+        
     }
 }
+
