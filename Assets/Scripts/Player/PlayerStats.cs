@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -14,6 +15,12 @@ public class PlayerStats : MonoBehaviour
     {
         _currentHp = _maxHp;
         _currentMp = _maxMp;
+    }
+
+
+    public void ReadyForSkill()
+    {
+        //UIManager.Instance.
     }
 
 }

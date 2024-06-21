@@ -34,6 +34,10 @@ public class PlayerAtk : MonoBehaviour
         {
             Animator_Atk.SetTrigger("Parring");
         }
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Animator_Atk.SetTrigger("Dash");
+        }
     }
 
 
@@ -46,4 +50,5 @@ public class PlayerAtk : MonoBehaviour
         RhythmManager.Instance.CallRhythmCircle();
     }
     
+
 }

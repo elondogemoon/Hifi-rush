@@ -8,7 +8,7 @@ public class RhythmCircle : MonoBehaviour
     [SerializeField] float shrinkSpeed = 1f; // Speed at which the big circle shrinks
     [SerializeField] float initialScale = 1f; // Initial scale of the big circle
     [SerializeField] float targetScale = 0.2f; // Target scale of the big circle to match the small circle
-
+    [SerializeField] GameObject great;
     private bool isAnimating = false;
     private bool isClicked = false;
 
@@ -36,6 +36,9 @@ public class RhythmCircle : MonoBehaviour
     private void ResetAnimation()
     {
         bigCircleImage.transform.localScale = new Vector3(initialScale, initialScale, initialScale);
+        bigCircleImage.enabled = true;
+        smallCircleImage.enabled = true;
+        great.SetActive(false);
     }
 
     private void UpdateAnimation()
@@ -58,7 +61,8 @@ public class RhythmCircle : MonoBehaviour
        
         if (bigCircleImage.transform.localScale.x <= 0)
         {
-            this.gameObject.SetActive(false);
+            bigCircleImage.enabled = false;
+            smallCircleImage.enabled = false;
         }
     }
 
@@ -68,6 +72,18 @@ public class RhythmCircle : MonoBehaviour
         isAnimating = false;
         Debug.Log("Perfect Timing!");
         //TODO : VFX(파티클),화면 효과, 사운드 추가
-        this.gameObject.SetActive(false); 
+       // this.gameObject.SetActive(false);
+        great.SetActive(true);
+        Invoke("OffGreat", 2);
+        OffCircle();
+    }
+    private void OffCircle()
+    {
+        smallCircleImage.enabled = false;
+        bigCircleImage.enabled = false;
+    }
+    private void OffGreat()
+    {
+        great.SetActive(false);
     }
 }

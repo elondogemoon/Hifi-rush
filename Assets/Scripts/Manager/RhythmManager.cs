@@ -6,10 +6,6 @@ public class RhythmManager : Singleton<RhythmManager>
 {
    [SerializeField] RhythmCircle rhythmCircle;
 
-    
-
-    
-
     public void CallRhythmCircle()
     {
         rhythmCircle.StartAnimation();

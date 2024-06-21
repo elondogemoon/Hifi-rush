@@ -12,14 +12,14 @@ public class PulseToBeat : MonoBehaviour
     private void Start()
     {
         _startSize = transform.localScale;
-        if( _useTestBeat)
+        if (_useTestBeat)
         {
             StartCoroutine(TestBeat());
         }
     }
     private void Update()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale, _startSize, Time.deltaTime*_returnSpeed);
+        transform.localScale = Vector3.Lerp(transform.localScale, _startSize, Time.deltaTime * _returnSpeed);
     }
     public void Pulse()
     {
@@ -27,9 +27,9 @@ public class PulseToBeat : MonoBehaviour
     }
     IEnumerator TestBeat()
     {
-        while(true)
+        while (true)
         {
-            yield return new WaitForSeconds( 1f );
+            yield return new WaitForSeconds(1f);
             Pulse();
         }
     }

@@ -3,7 +3,22 @@ guid: d45def107c281d549862f86f4f7fe6cd
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_ComEmi_Flat_Blue
+    second: {fileID: 2100000, guid: 0b040ac598a63e642b34f1b2a2fd1183, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_em0100_Outline
+    second: {fileID: 2100000, guid: 0b040ac598a63e642b34f1b2a2fd1183, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_em0101
+    second: {fileID: 2100000, guid: 78065e423fbb5854d9eda1e90d3e0cea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
