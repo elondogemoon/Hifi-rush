@@ -41,6 +41,9 @@ public class PlayerAtk : MonoBehaviour
     {
         Animator_Atk.SetTrigger("SP_Attack");
     }
-
+    public void ActiveRhythmCircle()
+    {
+        RhythmManager.Instance.CallRhythmCircle();
+    }
     
 }
