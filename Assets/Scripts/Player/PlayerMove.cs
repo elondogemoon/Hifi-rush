@@ -10,8 +10,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator _Animator;
     [SerializeField] private Camera virtualCamera;
     [SerializeField] private float turnSpeed = 5.0f;
-    
-    [SerializeField]public CharacterController _CharacterController;
+
+    [SerializeField] public CharacterController _CharacterController;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
     private float gravity = -9.81f;
@@ -24,6 +24,12 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        // CharacterController가 활성화되어 있는지 확인
+        if (_CharacterController == null || !_CharacterController.enabled)
+        {
+            return; // CharacterController가 비활성화된 경우 이동 로직을 실행하지 않음
+        }
+
         float x = Input.GetAxisRaw("Vertical");
         float z = Input.GetAxisRaw("Horizontal");
         float r = Input.GetAxis("Mouse X");
