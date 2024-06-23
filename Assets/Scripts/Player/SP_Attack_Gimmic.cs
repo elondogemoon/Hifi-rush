@@ -19,10 +19,11 @@ public class SP_Attack_Gimmic : MonoBehaviour
         rectTransform.anchoredPosition = startPosition;
     }
 
-    public void StartAnimation()
+    public void StartGimic()
     {
-        isMoving = true;
-        rectTransform.anchoredPosition = startPosition;
+        _spAttackbg.gameObject.SetActive(true);
+        //isMoving = true;
+       // rectTransform.anchoredPosition = startPosition;
     }
 
     private void Update()

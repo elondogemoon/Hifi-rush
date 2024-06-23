@@ -12,6 +12,6 @@ public class RhythmManager : Singleton<RhythmManager>
     }
     public void OnSPAttackActive()
     {
-
+        SP_Attack_Gimmic.StartGimic();
     }
 }

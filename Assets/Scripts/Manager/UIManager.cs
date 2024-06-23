@@ -13,7 +13,7 @@ public enum UIType
 public class UIManager : Singleton<UIManager>
 {
     private HashSet<UIType> _openUiDic = new HashSet<UIType>();
-
+    private SP_Attack_Gimmic SP_Attack_Gimmic;
     private void OpenUI(UIType uiType, GameObject UIobj)
     {
         if (_openUiDic.Contains(uiType) == false)
@@ -30,7 +30,7 @@ public class UIManager : Singleton<UIManager>
             _openUiDic.Remove(uiType);
         }
     }
-    private void CircleOn()
+    private void CircleOn(UIType uiType, GameObject UIobj)
     {
 
     }
