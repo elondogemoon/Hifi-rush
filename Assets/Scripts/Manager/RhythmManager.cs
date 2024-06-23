@@ -5,9 +5,13 @@ using UnityEngine;
 public class RhythmManager : Singleton<RhythmManager>
 {
    [SerializeField] RhythmCircle rhythmCircle;
-
+    [SerializeField] SP_Attack_Gimmic SP_Attack_Gimmic;
     public void CallRhythmCircle()
     {
         rhythmCircle.StartAnimation();
+    }
+    public void OnSPAttackActive()
+    {
+
     }
 }

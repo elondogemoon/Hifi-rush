@@ -34,4 +34,8 @@ public class UIManager : Singleton<UIManager>
     {
 
     }
+    public void SuccessCircle()
+    {
+
+    }
 }

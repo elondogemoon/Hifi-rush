@@ -9,6 +9,7 @@ public class RhythmCircle : MonoBehaviour
     [SerializeField] float initialScale = 1f; // Initial scale of the big circle
     [SerializeField] float targetScale = 0.2f; // Target scale of the big circle to match the small circle
     [SerializeField] GameObject great;
+    [SerializeField] GameObject successEffect;
     private bool isAnimating = false;
     private bool isClicked = false;
 
@@ -72,7 +73,8 @@ public class RhythmCircle : MonoBehaviour
         isAnimating = false;
         Debug.Log("Perfect Timing!");
         //TODO : VFX(파티클),화면 효과, 사운드 추가
-       // this.gameObject.SetActive(false);
+        // this.gameObject.SetActive(false);
+        successEffect.SetActive(true);
         great.SetActive(true);
         Invoke("OffGreat", 2);
         OffCircle();
@@ -85,5 +87,7 @@ public class RhythmCircle : MonoBehaviour
     private void OffGreat()
     {
         great.SetActive(false);
+        successEffect.SetActive(false);
+
     }
 }
