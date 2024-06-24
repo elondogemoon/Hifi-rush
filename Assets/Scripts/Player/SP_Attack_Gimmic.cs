@@ -1,52 +1,83 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+//활성화 될 때 여러개의 moveCircle이 나와야 한다.
+//correctCircle의 위치와 moveCircle의 위치가 같을때 마우스 클릭
+//성공 시 gimmicGauge의 fillamount 증가
+//실패 시  fail애니메이션 재생
+//Disable될 때마다 초기화
 public class SP_Attack_Gimmic : MonoBehaviour
 {
     [SerializeField] GameObject _spAttackbg;
     [SerializeField] Image correctCircle;
     [SerializeField] Image moveCircle;
-    public float moveSpeed = 5f;
-    private bool isMoving = false;
-    private RectTransform rectTransform;
-    private Vector2 startPosition;
-    private Vector2 endPosition;
+    [SerializeField] Image gimmicGauge;
+    [SerializeField] Image offCircle;
+    private float moveSpeed = 10f;
+    private Coroutine moveCoroutine;
 
-    private void Start()
+    private void OnEnable()
     {
-        rectTransform = GetComponent<RectTransform>();
-        startPosition = new Vector2(500f, 0f); 
-        endPosition = new Vector2(-500f, 0f); 
-        rectTransform.anchoredPosition = startPosition;
+        gimmicGauge.fillAmount = 0;
+        moveCircle.rectTransform.anchoredPosition = new Vector2(0, moveCircle.rectTransform.anchoredPosition.y);
+       
+    }
+
+    private void OnDisable()
+    {
+        EndGimmic();
     }
 
     public void StartGimic()
     {
-        _spAttackbg.gameObject.SetActive(true);
-        //isMoving = true;
-       // rectTransform.anchoredPosition = startPosition;
+        _spAttackbg.SetActive(true);
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+        moveCoroutine = StartCoroutine(MoveCircle());
     }
 
-    private void Update()
+    public void EndGimmic()
     {
-        if (isMoving)
+        if (moveCoroutine != null)
         {
-            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, endPosition, moveSpeed * Time.deltaTime);
-            if (rectTransform.anchoredPosition == endPosition)
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
+        }
+        gimmicGauge.fillAmount = 0;
+        moveCircle.rectTransform.anchoredPosition = new Vector2(0, moveCircle.rectTransform.anchoredPosition.y);
+    }
+
+    private IEnumerator MoveCircle()
+    {
+        while (true)
+        {
+            moveCircle.rectTransform.anchoredPosition += Vector2.left * moveSpeed * Time.deltaTime;
+
+            if (moveCircle.rectTransform.anchoredPosition.x == offCircle.rectTransform.anchoredPosition.x)
             {
-                isMoving = false;
-                OnAnimationEnd();
+                moveCircle.enabled = false;
+                yield break; 
             }
+            CheckCorrect();
+            yield return null; 
         }
     }
 
-    private void OnAnimationEnd()
+    private void CheckCorrect()
     {
-        Debug.Log("Animation Ended");
+        if(correctCircle != null)
+        {
+            if(correctCircle.rectTransform.localPosition == moveCircle.rectTransform.localPosition)
+            {
+                
+            }
+        }
+    }
+    public void OffAttackGimic()
+    {
+        _spAttackbg.gameObject.SetActive(false);
     }
 
-    public bool CheckTiming()
-    {
-        float distance = Vector2.Distance(rectTransform.anchoredPosition, Vector2.zero); 
-        return distance < 50f; 
-    }
 }

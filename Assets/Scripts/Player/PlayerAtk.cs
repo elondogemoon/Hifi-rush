@@ -50,6 +50,9 @@ public class PlayerAtk : MonoBehaviour
     {
         RhythmManager.Instance.CallRhythmCircle();
     }
-    
+    public void OffSpAttack()
+    {
+        RhythmManager.Instance.OffSpAttack();
+    }
 
 }

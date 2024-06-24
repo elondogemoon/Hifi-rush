@@ -16,6 +16,7 @@ public class RhythmCircle : MonoBehaviour
     void Start()
     {
         ResetAnimation();
+        OffCircle();
     }
 
     void Update()

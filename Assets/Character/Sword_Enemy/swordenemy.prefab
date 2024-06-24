@@ -851,6 +851,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1415676604618955661}
   - component: {fileID: -4084024079534340619}
+  - component: {fileID: 1857639914}
+  - component: {fileID: 65673807218313823}
+  - component: {fileID: 5173911807575272304}
   m_Layer: 0
   m_Name: swordenemy
   m_TagString: Untagged
@@ -884,7 +887,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796565662577230135}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: dd882c9bfe0a1994cb58ee9d83ef1ea4, type: 3}
   m_Controller: {fileID: 9100000, guid: c536485987a46e24e8537a55c9e63522, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -896,6 +899,58 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &1857639914
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796565662577230135}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!136 &65673807218313823
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796565662577230135}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.11
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.85, z: 0}
+--- !u!114 &5173911807575272304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796565662577230135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d620a0461559584e878c1d89fd50c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnemyHp: 0
+  _Animator: {fileID: -4084024079534340619}
+  _WeaponCollider: {fileID: 8472805541782688286}
+  _navAgent: {fileID: 1857639914}
 --- !u!1 &1801883205451475923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3697,3 +3752,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6037199795678619665, guid: 86b75a3831d743a44a3f1a3d888c3c87, type: 3}
   m_PrefabInstance: {fileID: 6196260881549273105}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &972262843341134522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6378119166423757483, guid: 86b75a3831d743a44a3f1a3d888c3c87, type: 3}
+  m_PrefabInstance: {fileID: 6196260881549273105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8472805541782688286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972262843341134522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.24, y: 1.47, z: 0.62}
+  m_Center: {x: 0, y: 0.62, z: 0}
