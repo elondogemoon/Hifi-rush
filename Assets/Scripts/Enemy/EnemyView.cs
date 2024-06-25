@@ -29,5 +29,13 @@ public class EnemyView : MonoBehaviour
 
         _enemyState?.ExecuteOnUpdate();
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "PlayerWeapon")
+        {
+            ChangeState(new HurtState(this));
+            Debug.Log(_EnemyHp);
+            _EnemyHp -= 10;
+        }
+    }
 }

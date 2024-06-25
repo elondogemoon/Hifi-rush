@@ -6,6 +6,7 @@ public class RhythmManager : Singleton<RhythmManager>
 {
    [SerializeField] RhythmCircle rhythmCircle;
     [SerializeField] SP_Attack_Gimmic SP_Attack_Gimmic;
+    [SerializeField] PlayerAtk playerAtk; 
     public void CallRhythmCircle()
     {
         rhythmCircle.StartAnimation();
@@ -17,5 +18,9 @@ public class RhythmManager : Singleton<RhythmManager>
     public void OffSpAttack()
     {
         SP_Attack_Gimmic.OffAttackGimic();
+    }
+    public void FailSpAttack()
+    {
+        playerAtk.Animator_Atk.SetTrigger("Fail");
     }
 }

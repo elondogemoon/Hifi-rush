@@ -23008,7 +23008,7 @@ GameObject:
   - component: {fileID: 5200346153360933034}
   m_Layer: 0
   m_Name: chai_real
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26622,6 +26622,10 @@ PrefabInstance:
     - target: {fileID: 8434356402410039930, guid: f7212095f9ad35145b66ff65f450b4ee, type: 3}
       propertyPath: m_Name
       value: Chai_Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434356402410039930, guid: f7212095f9ad35145b66ff65f450b4ee, type: 3}
+      propertyPath: m_TagString
+      value: PlayerWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 9099253500860264640, guid: f7212095f9ad35145b66ff65f450b4ee, type: 3}
       propertyPath: m_RootOrder

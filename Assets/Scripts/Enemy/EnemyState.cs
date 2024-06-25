@@ -113,7 +113,6 @@ public class DieState : StateBase
     public override void ExecuteOnUpdate()
     {
         var animInfo = _enemy._Animator.GetCurrentAnimatorStateInfo(0);
-        Debug.Log(animInfo.normalizedTime);
 
         
         if (animInfo.normalizedTime >= 1 && !animInfo.loop)
@@ -124,7 +123,19 @@ public class DieState : StateBase
 
     public override void ExitState()
     {
-        // ÇÊ¿ä¿¡ µû¶ó ¿©±â¿¡ »óÅÂ Á¾·á ½Ã ·ÎÁ÷ Ãß°¡
+        // í•„ìš”ì— ë”°ë¼ ì—¬ê¸°ì— ìƒíƒœ ì¢…ë£Œ ì‹œ ë¡œì§ ì¶”ê°€
+    }
+}
+public class HurtState : StateBase
+{
+    private readonly EnemyView _enemy;
+    public HurtState(EnemyView enemy)
+    {
+        _enemy = enemy;
+    }
+    public override void EnterState()
+    {
+        _enemy._Animator.SetTrigger("Hurt");
     }
 }
 

@@ -9,12 +9,10 @@ public class InitState : StateMachineBehaviour
         if (_playerMove == null)
         {
             _playerMove = animator.GetComponentInParent<PlayerMove>();
-        }
-
-        if (_playerMove != null)
-        {
             _playerMove._CharacterController.enabled = false;
         }
+
+        
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -23,7 +21,7 @@ public class InitState : StateMachineBehaviour
         animator.ResetTrigger("R_Attack");
         animator.ResetTrigger("Parring");
         animator.ResetTrigger("Dash");
-
+        animator.ResetTrigger("Fail");
         if (_playerMove == null)
         {
             _playerMove = animator.GetComponentInParent<PlayerMove>();

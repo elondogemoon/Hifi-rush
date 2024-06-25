@@ -50,7 +50,7 @@ public class RhythmCircle : MonoBehaviour
         if (Mathf.Abs(bigCircleImage.transform.localScale.x - targetScale) < 0.05f)
         {
             // Check for mouse click
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0)||Input.GetMouseButtonDown(1))
             {
                 Vector2 localMousePosition = bigCircleImage.rectTransform.InverseTransformPoint(Input.mousePosition);
                 if (bigCircleImage.rectTransform.rect.Contains(localMousePosition))
@@ -73,7 +73,7 @@ public class RhythmCircle : MonoBehaviour
         isClicked = true;
         isAnimating = false;
         Debug.Log("Perfect Timing!");
-        //TODO : VFX(ÆÄÆ¼Å¬),È­¸é È¿°ú, »ç¿îµå Ãß°¡
+        //TODO : VFX(íŒŒí‹°í´),í™”ë©´ íš¨ê³¼, ì‚¬ìš´ë“œ ì¶”ê°€
         // this.gameObject.SetActive(false);
         successEffect.SetActive(true);
         great.SetActive(true);

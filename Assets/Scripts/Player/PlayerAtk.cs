@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAtk : MonoBehaviour
 {
     [SerializeField]
-    Animator Animator_Atk;
+    public Animator Animator_Atk;
     [SerializeField]
     GameObject Weapon;
 

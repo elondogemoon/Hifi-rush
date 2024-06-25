@@ -24,10 +24,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        // CharacterController°¡ È°¼ºÈ­µÇ¾î ÀÖ´ÂÁö È®ÀÎ
+        // CharacterControllerê°€ í™œì„±í™”ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸
         if (_CharacterController == null || !_CharacterController.enabled)
         {
-            return; // CharacterController°¡ ºñÈ°¼ºÈ­µÈ °æ¿ì ÀÌµ¿ ·ÎÁ÷À» ½ÇÇàÇÏÁö ¾ÊÀ½
+            return; // CharacterControllerê°€ ë¹„í™œì„±í™”ëœ ê²½ìš° ì´ë™ ë¡œì§ì„ ì‹¤í–‰í•˜ì§€ ì•ŠìŒ
         }
 
         float x = Input.GetAxisRaw("Vertical");
@@ -39,28 +39,28 @@ public class PlayerMove : MonoBehaviour
             Vector3 cameraForward = virtualCamera.transform.forward;
             Vector3 cameraRight = virtualCamera.transform.right;
 
-            // Ä«¸Ş¶óÀÇ ¾ÕÂÊ º¤ÅÍ¿Í ¿À¸¥ÂÊ º¤ÅÍ¸¦ ¼öÆò¸é¿¡ Åõ¿µ (y = 0)
+            // ì¹´ë©”ë¼ì˜ ì•ìª½ ë²¡í„°ì™€ ì˜¤ë¥¸ìª½ ë²¡í„°ë¥¼ ìˆ˜í‰ë©´ì— íˆ¬ì˜ (y = 0)
             cameraForward.y = 0f;
             cameraRight.y = 0f;
 
             cameraForward.Normalize();
             cameraRight.Normalize();
 
-            // ÀÌµ¿ ¹æÇâ °è»ê
+            // ì´ë™ ë°©í–¥ ê³„ì‚°
             moveDirection = z * cameraRight + x * cameraForward;
 
-            // ÀÌµ¿ ¹æÇâÀ¸·Î ÇÃ·¹ÀÌ¾î È¸Àü
+            // ì´ë™ ë°©í–¥ìœ¼ë¡œ í”Œë ˆì´ì–´ íšŒì „
             if (moveDirection != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
             }
 
-            // Ä³¸¯ÅÍ ÀÌµ¿
+            // ìºë¦­í„° ì´ë™
             _CharacterController.Move(moveDirection * _MoveSpeed * Time.deltaTime);
         }
 
-        // Áß·Â Àû¿ë
+        // ì¤‘ë ¥ ì ìš©
         if (!_CharacterController.isGrounded)
         {
             velocity.y += gravity * Time.deltaTime;
@@ -71,7 +71,7 @@ public class PlayerMove : MonoBehaviour
         }
         _CharacterController.Move(velocity * Time.deltaTime);
 
-        // ¾Ö´Ï¸ŞÀÌÅÍ ¾÷µ¥ÀÌÆ®
+        // ì• ë‹ˆë©”ì´í„° ì—…ë°ì´íŠ¸
         float moveMagnitude = new Vector2(x, z).magnitude;
         _Animator.SetFloat("MoveSpeed", moveMagnitude);
     }
