@@ -8,12 +8,12 @@ public class PlayerAtk : MonoBehaviour
     public Animator Animator_Atk;
     [SerializeField]
     GameObject Weapon;
-
+    [SerializeField]
+    Collider _ParringColider;
 
     private void Update()
     {
         Attack();
-        
     }
 
     public void Attack()
@@ -54,5 +54,12 @@ public class PlayerAtk : MonoBehaviour
     {
         RhythmManager.Instance.OffSpAttack();
     }
-
+    public void OnParrying()
+    {
+        _ParringColider.enabled = true;
+    }
+    public void OffParrying()
+    {
+        _ParringColider.enabled = false;
+    }
 }

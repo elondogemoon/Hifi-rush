@@ -14,7 +14,7 @@ public class SP_Attack_Gimmic : MonoBehaviour
     private float moveSpeed = 20f;
     private Coroutine moveCoroutine;
     private List<Image> moveCircles = new List<Image>();
-
+    private int _checkCount;
     private void OnEnable()
     {
         gimmicGauge.fillAmount = 0;
@@ -107,13 +107,16 @@ public class SP_Attack_Gimmic : MonoBehaviour
             if (Vector2.Distance(correctCircle.rectTransform.localPosition, moveCircle.rectTransform.localPosition) < 5f)
             {
                 gimmicGauge.fillAmount += 0.2f;
-                moveCircle.rectTransform.anchoredPosition = new Vector2(200, moveCircle.rectTransform.anchoredPosition.y); // Move the circle out of visible range
+                moveCircle.rectTransform.anchoredPosition = new Vector2(200, moveCircle.rectTransform.anchoredPosition.y);
+                _checkCount++;
+                // Move the circle out of visible range
             }
         }
     }
 
     public void OffAttackGimic()
     {
+        Debug.Log(_checkCount);
         _spAttackbg.gameObject.SetActive(false);
     }
 

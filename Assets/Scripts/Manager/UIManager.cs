@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public enum UIType
 {
     SkillReadyPopUp,
@@ -12,6 +12,7 @@ public enum UIType
 }
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] Image _hpBar;
     private HashSet<UIType> _openUiDic = new HashSet<UIType>();
     private SP_Attack_Gimmic SP_Attack_Gimmic;
     private void OpenUI(UIType uiType, GameObject UIobj)

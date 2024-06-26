@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - PlayerWeapon
+  - Parrying
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX

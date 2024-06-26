@@ -485,12 +485,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4296876970060106}
+  - component: {fileID: 2005800984}
   m_Layer: 0
   m_Name: P_Wall_Heal_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4296876970060106
 Transform:
@@ -508,6 +509,21 @@ Transform:
   m_Father: {fileID: 4607293354471818}
   m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2005800984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011349529338534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39515a74798800e429e3425de31753c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _useTestBeat: 0
+  _pulseSize: 1.15
+  _returnSpeed: 5
 --- !u!1 &1012976784034470
 GameObject:
   m_ObjectHideFlags: 0
@@ -16949,7 +16965,7 @@ MeshCollider:
   m_GameObject: {fileID: 1258182631934680}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -32324,7 +32340,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 99e7cd036e4274b1591f5033e614c369, type: 2}
-  - {fileID: 2100000, guid: 99e7cd036e4274b1591f5033e614c369, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32519,7 +32534,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4596680608829378
 Transform:
@@ -45866,12 +45881,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4601080537317020}
+  - component: {fileID: 1129451590}
   m_Layer: 0
   m_Name: P_Pipes_Insert_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4601080537317020
 Transform:
@@ -45889,6 +45905,21 @@ Transform:
   m_Father: {fileID: 4607293354471818}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 90}
+--- !u!114 &1129451590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572996807158474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39515a74798800e429e3425de31753c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _useTestBeat: 0
+  _pulseSize: 1.15
+  _returnSpeed: 5
 --- !u!1 &1573071839610216
 GameObject:
   m_ObjectHideFlags: 0
@@ -60455,7 +60486,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4628191153720652
 Transform:
@@ -66048,7 +66079,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909551841377408}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 1

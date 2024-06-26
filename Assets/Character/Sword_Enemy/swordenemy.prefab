@@ -952,6 +952,9 @@ MonoBehaviour:
   _Animator: {fileID: -4084024079534340619}
   _WeaponCollider: {fileID: 8472805541782688286}
   _navAgent: {fileID: 1857639914}
+  _coiilder: {fileID: 65673807218313823}
+  _attackRange: 0
+  target: {fileID: 0}
 --- !u!54 &7040482729507781434
 Rigidbody:
   m_ObjectHideFlags: 0

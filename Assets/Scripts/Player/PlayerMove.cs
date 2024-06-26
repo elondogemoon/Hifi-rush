@@ -10,11 +10,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator _Animator;
     [SerializeField] private Camera virtualCamera;
     [SerializeField] private float turnSpeed = 5.0f;
+    [SerializeField] private float jumpHeight = 2.0f;
 
     [SerializeField] public CharacterController _CharacterController;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
     private float gravity = -9.81f;
+    private int jumpCount = 0;
+    private const int maxJumpCount = 2; // 2단 점프를 위해 최대 점프 횟수를 2로 설정
 
     private void Awake()
     {
@@ -34,6 +37,7 @@ public class PlayerMove : MonoBehaviour
         float z = Input.GetAxisRaw("Horizontal");
         float r = Input.GetAxis("Mouse X");
 
+        // 이동 및 회전 처리
         if (x != 0 || z != 0)
         {
             Vector3 cameraForward = virtualCamera.transform.forward;
@@ -60,7 +64,15 @@ public class PlayerMove : MonoBehaviour
             _CharacterController.Move(moveDirection * _MoveSpeed * Time.deltaTime);
         }
 
-        // 중력 적용
+        // 점프 처리
+        if (Input.GetKeyDown(KeyCode.Space)/* && jumpCount < maxJumpCount*/)
+        {
+            _Animator.SetTrigger("Jump");
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumpCount++;
+        }
+
+        // 중력 적용 및 지면 체크
         if (!_CharacterController.isGrounded)
         {
             velocity.y += gravity * Time.deltaTime;
@@ -68,6 +80,7 @@ public class PlayerMove : MonoBehaviour
         else
         {
             velocity.y = 0f;
+            jumpCount = 0; // 캐릭터가 지면에 닿았을 때 점프 횟수 초기화
         }
         _CharacterController.Move(velocity * Time.deltaTime);
 

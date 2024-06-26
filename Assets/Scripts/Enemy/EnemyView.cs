@@ -2,40 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 public class EnemyView : MonoBehaviour
 {
     [SerializeField] public int _EnemyHp;
     [SerializeField] public Animator _Animator;
     [SerializeField] public Collider _WeaponCollider;
     [SerializeField] public NavMeshAgent _navAgent;
+    [SerializeField] public Collider _coiilder;
     private IEnemyState _enemyState;
+    [SerializeField] public float _attackRange;
+    public Transform target;
 
     private void Start()
     {
-        ChangeState(new appearState(this));
+        ChangeState(new AppearState(this));
+        _Animator = GetComponent<Animator>();
     }
+
     public void ChangeState(IEnemyState newState)
     {
         _enemyState?.ExitState();
         _enemyState = newState;
         _enemyState.EnterState();
     }
-    public void Update()
+
+    private void Update()
     {
         if (_EnemyHp <= 0 && !(_enemyState is DieState))
         {
             ChangeState(new DieState(this));
         }
-
+       
         _enemyState?.ExecuteOnUpdate();
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "PlayerWeapon")
+        if (other.tag == "PlayerWeapon")
         {
             ChangeState(new HurtState(this));
             Debug.Log(_EnemyHp);
             _EnemyHp -= 10;
         }
+        if(other.tag == "Parrying")
+        {
+            OnParryed();
+        }
+    }
+    public void OnParryed()
+    {
+        ChangeState(new HurtState(this));
+    }
+    public void OnAttackState()
+    {
+        _WeaponCollider.enabled = true;
+    }
+    public void OnAttackEnd()
+    {
+        _WeaponCollider.enabled = false;
     }
 }

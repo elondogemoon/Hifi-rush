@@ -1327,6 +1327,9 @@ MonoBehaviour:
   _Animator: {fileID: 7221133280036514069}
   _WeaponCollider: {fileID: 0}
   _navAgent: {fileID: 1036648526465248737}
+  _coiilder: {fileID: 2944830377566702339}
+  _attackRange: 0
+  target: {fileID: 0}
 --- !u!54 &2169924143912702311
 Rigidbody:
   m_ObjectHideFlags: 0
