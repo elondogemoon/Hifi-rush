@@ -23,4 +23,5 @@ public class RhythmManager : Singleton<RhythmManager>
     {
         playerAtk.Animator_Atk.SetTrigger("Fail");
     }
+
 }

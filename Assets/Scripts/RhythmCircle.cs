@@ -75,6 +75,7 @@ public class RhythmCircle : MonoBehaviour
         Debug.Log("Perfect Timing!");
         //TODO : VFX(파티클),화면 효과, 사운드 추가
         // this.gameObject.SetActive(false);
+        SfxManager.Instance.OnCircleSuccess();
         successEffect.SetActive(true);
         great.SetActive(true);
         Invoke("OffGreat", 2);
