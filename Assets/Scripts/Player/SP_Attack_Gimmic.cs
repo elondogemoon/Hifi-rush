@@ -129,7 +129,7 @@ public class SP_Attack_Gimmic : MonoBehaviour
         }
         else
         {
-            // 성공 시 수행할 작업
+            SfxManager.Instance.OnSPAttackSuccess();
         }
     }
 }

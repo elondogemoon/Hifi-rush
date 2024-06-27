@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedAttackEnemy : MonoBehaviour
+public class RangedAttackEnemy : EnemyView
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform attackPoint;
+    public GameObject projectilePrefab;
+    public float projectileSpeed = 10f;
 
-    // Update is called once per frame
-    void Update()
+   
+    private void ExecuteRangedAttack()
     {
+        RaycastHit hit;
         
     }
 }

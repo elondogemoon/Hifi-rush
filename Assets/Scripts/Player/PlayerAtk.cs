@@ -10,6 +10,8 @@ public class PlayerAtk : MonoBehaviour
     GameObject Weapon;
     [SerializeField]
     Collider _ParringColider;
+    [SerializeField]
+    Collider _WeaponCollider;
 
     private void Update()
     {
@@ -57,9 +59,18 @@ public class PlayerAtk : MonoBehaviour
     public void OnParrying()
     {
         _ParringColider.enabled = true;
+        
     }
     public void OffParrying()
     {
         _ParringColider.enabled = false;
+    }
+    public void OnAttack()
+    {
+        _WeaponCollider.enabled = true;
+    }
+    public void OffAttack()
+    {
+        _WeaponCollider.enabled = false;
     }
 }

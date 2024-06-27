@@ -35,7 +35,6 @@ public class PlayerMove : MonoBehaviour
 
         float x = Input.GetAxisRaw("Vertical");
         float z = Input.GetAxisRaw("Horizontal");
-        float r = Input.GetAxis("Mouse X");
 
         // 이동 및 회전 처리
         if (x != 0 || z != 0)
@@ -64,8 +63,17 @@ public class PlayerMove : MonoBehaviour
             _CharacterController.Move(moveDirection * _MoveSpeed * Time.deltaTime);
         }
 
+        // 카메라 방향으로 플레이어 회전
+        Vector3 cameraDirection = virtualCamera.transform.forward;
+        cameraDirection.y = 0; // 수평면에서만 회전하도록 y축을 0으로 설정
+        if (cameraDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(cameraDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+        }
+
         // 점프 처리
-        if (Input.GetKeyDown(KeyCode.Space)/* && jumpCount < maxJumpCount*/)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumpCount)
         {
             _Animator.SetTrigger("Jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);

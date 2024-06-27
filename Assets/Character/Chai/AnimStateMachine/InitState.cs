@@ -6,13 +6,13 @@ public class InitState : StateMachineBehaviour
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (_playerMove == null)
+        _playerMove = animator.GetComponentInParent<PlayerMove>();
+        if (_playerMove != null)
         {
-            _playerMove = animator.GetComponentInParent<PlayerMove>();
-            _playerMove._CharacterController.enabled = false;
+            _playerMove.enabled = false;
+           // _playerMove._CharacterController.enabled = false;
+            Debug.Log("CharacterController disabled on state enter.");
         }
-
-        
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,14 +22,8 @@ public class InitState : StateMachineBehaviour
         animator.ResetTrigger("Parring");
         animator.ResetTrigger("Dash");
         animator.ResetTrigger("Fail");
-        if (_playerMove == null)
-        {
-            _playerMove = animator.GetComponentInParent<PlayerMove>();
-        }
+        
 
-        if (_playerMove != null)
-        {
-            _playerMove._CharacterController.enabled = true;
         }
-    }
+    
 }

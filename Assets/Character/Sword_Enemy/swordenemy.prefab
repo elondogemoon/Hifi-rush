@@ -3765,6 +3765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemySword
       objectReference: {fileID: 0}
+    - target: {fileID: 6378119166423757483, guid: 86b75a3831d743a44a3f1a3d888c3c87, type: 3}
+      propertyPath: m_TagString
+      value: EnemyWeapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86b75a3831d743a44a3f1a3d888c3c87, type: 3}
 --- !u!4 &447540037653397504 stripped
@@ -3786,7 +3790,7 @@ BoxCollider:
   m_GameObject: {fileID: 972262843341134522}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.24, y: 1.47, z: 0.62}
   m_Center: {x: 0, y: 0.62, z: 0}

@@ -20,7 +20,7 @@ public class EnemyView : MonoBehaviour
         _Animator = GetComponent<Animator>();
     }
 
-    public void ChangeState(IEnemyState newState)
+    public virtual void ChangeState(IEnemyState newState)
     {
         _enemyState?.ExitState();
         _enemyState = newState;
@@ -36,7 +36,7 @@ public class EnemyView : MonoBehaviour
        
         _enemyState?.ExecuteOnUpdate();
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "PlayerWeapon")
@@ -48,6 +48,7 @@ public class EnemyView : MonoBehaviour
         if(other.tag == "Parrying")
         {
             OnParryed();
+            _WeaponCollider.enabled = false;
         }
     }
     public void OnParryed()

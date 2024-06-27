@@ -9,13 +9,10 @@ public enum ChType
 
 public class GameManager : Singleton<GameManager>
 {
-    
 
-
-
-    public void ApplyDamage()
+    public void ApplyDamage(int damage, IDamageble character)
     {
-
+        character.ApplyDamage(damage);
     }
 
 }

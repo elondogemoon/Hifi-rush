@@ -12,7 +12,9 @@ public enum UIType
 }
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] PlayerStats _playerStats;
     [SerializeField] Image _hpBar;
+    [SerializeField] Image _MpBar;
     private HashSet<UIType> _openUiDic = new HashSet<UIType>();
     private SP_Attack_Gimmic SP_Attack_Gimmic;
     private void OpenUI(UIType uiType, GameObject UIobj)
@@ -38,5 +40,12 @@ public class UIManager : Singleton<UIManager>
     public void SuccessCircle()
     {
 
+    }
+    public void ApplyDamage()
+    {
+        if (_hpBar != null)
+        {
+            _hpBar.fillAmount = (float)_playerStats._currentHp / _playerStats._maxHp;
+        }
     }
 }

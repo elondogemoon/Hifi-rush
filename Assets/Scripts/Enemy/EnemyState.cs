@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public interface IEnemyState
@@ -53,6 +54,7 @@ public class IdleState : StateBase
     public override void EnterState()
     {
         _enemy._Animator.ResetTrigger("Appear");
+        //_enemy._Animator.SetTrigger("Appear");
     }
 
     public override void ExecuteOnUpdate()
@@ -80,11 +82,17 @@ public class AtkState : StateBase
 
     public override void ExecuteOnUpdate()
     {
-        var animInfo = _enemy._Animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo animatorStateInfo = _enemy._Animator.GetCurrentAnimatorStateInfo(0);
+        /*var animInfo = _enemy._Animator.GetCurrentAnimatorStateInfo(0);
         if (animInfo.normalizedTime > 1)
         {
             _enemy.ChangeState(new IdleState(_enemy));
-        }
+        }*/
+        // 현재 상태 이름을 확인
+        //if (animatorStateInfo.IsName("Attack" + "." + "SK_em0200|em0200_atk-gun_002"))
+        //{
+        //    Debug.Log("서브 스테이트 머신의 애니메이션이 모두 재생되었습니다.");
+        //}
     }
     public override void ExitState()
     {
@@ -103,8 +111,6 @@ public class MoveState : StateBase
 
     public override void EnterState()
     {
-        Debug.Log("OnMoveState");
-
         _enemy._Animator.SetTrigger("Move");
         _enemy._navAgent.isStopped = false; // NavMeshAgent 시작
     }

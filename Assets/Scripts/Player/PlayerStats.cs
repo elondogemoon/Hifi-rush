@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour,IDamageble
 {
-    private int _maxHp = 100;
-    private int _currentHp;
+    [SerializeField] Animator _Animator;
+    public int _maxHp = 100;
+    public int _currentHp;
 
-    private int _maxMp = 100;
-    private int _currentMp;
+    public int _maxMp = 100;
+    public int _currentMp;
 
     private void Awake()
     {
@@ -26,7 +27,27 @@ public class PlayerStats : MonoBehaviour
     {
         if (other.tag == "EnemyWeapon")
         {
-           
+            GameManager.Instance.ApplyDamage(10,this);
+            _Animator.SetTrigger("Hurt");
+            UIManager.Instance.ApplyDamage();
+            Debug.Log(_currentHp);
         }
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        _currentHp -= damage;
+        if (_currentHp <= 0)
+        {
+            _currentHp = 0;
+            OnDeath();
+        }
+    }
+    public void OnDeath()
+    {
+        Debug.Log("죽었");
+        //TODO : 죽었을때 처리
+        //애니메이션,씬 전환으로 처리할지 아니면 체크포인트로 돌아가는지
+
     }
 }
