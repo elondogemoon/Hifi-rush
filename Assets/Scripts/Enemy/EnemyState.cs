@@ -102,7 +102,7 @@ public class AtkState : StateBase
 public class MoveState : StateBase
 {
     private readonly EnemyView _enemy;
-    private readonly float attackRange = 5f; // 공격 범위
+    public readonly float attackRange = 5f; // 공격 범위
 
     public MoveState(EnemyView enemy)
     {

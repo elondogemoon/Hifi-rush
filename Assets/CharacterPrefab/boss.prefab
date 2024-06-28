@@ -10243,6 +10243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3572652763377476650}
   - component: {fileID: 8992241464378200511}
+  - component: {fileID: 8564460940256677762}
   m_Layer: 0
   m_Name: boss
   m_TagString: Untagged
@@ -10276,11 +10277,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4242193413234949776}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: ac7c5aec72676b84c80506119ce2e900, type: 3}
+  m_Controller: {fileID: 9100000, guid: 223cf075bc1f5dc4f88a8a0f8cb59518, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -10288,6 +10289,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &8564460940256677762
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242193413234949776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.42
+  m_Height: 5.48
+  m_Direction: 1
+  m_Center: {x: 0, y: 3.45, z: 0}
 --- !u!1 &4262109665526437918
 GameObject:
   m_ObjectHideFlags: 0

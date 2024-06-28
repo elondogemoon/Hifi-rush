@@ -41,11 +41,33 @@ public class UIManager : Singleton<UIManager>
     {
 
     }
-    public void ApplyDamage()
+    public void ApplyDamageToUI()
     {
         if (_hpBar != null)
         {
             _hpBar.fillAmount = (float)_playerStats._currentHp / _playerStats._maxHp;
+        }
+    }
+    public void UpdateMP()
+    {
+        if (_MpBar != null)
+        {
+            _MpBar.fillAmount = (float)_playerStats._currentMp / _playerStats._maxMp;
+        }
+    }
+    public void FillMp()
+    {
+        if (_MpBar != null)
+        {
+            _MpBar.fillAmount = (float)_playerStats._currentMp / _playerStats._maxMp;
+
+        }
+    }
+    public void FailReturnMp()
+    {
+        if(_MpBar != null)
+        {
+            _MpBar.fillAmount += 80f;
         }
     }
 }

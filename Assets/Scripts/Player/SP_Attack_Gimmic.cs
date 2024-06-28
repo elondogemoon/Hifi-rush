@@ -46,7 +46,6 @@ public class SP_Attack_Gimmic : MonoBehaviour
             moveCoroutine = null;
         }
         CheckSuccessorFail(); // Check success or failure when gimmick ends
-        gimmicGauge.fillAmount = 0;
         ClearMoveCircles();
     }
 
@@ -126,10 +125,13 @@ public class SP_Attack_Gimmic : MonoBehaviour
         {
             RhythmManager.Instance.FailSpAttack();
             OffAttackGimic();
+            UIManager.Instance.FailReturnMp();
         }
         else
         {
             SfxManager.Instance.OnSPAttackSuccess();
+            gimmicGauge.fillAmount = 0;
+
         }
     }
 }

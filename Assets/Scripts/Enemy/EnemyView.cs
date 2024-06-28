@@ -11,7 +11,6 @@ public class EnemyView : MonoBehaviour
     [SerializeField] public NavMeshAgent _navAgent;
     [SerializeField] public Collider _coiilder;
     private IEnemyState _enemyState;
-    [SerializeField] public float _attackRange;
     public Transform target;
 
     private void Start()
@@ -44,10 +43,12 @@ public class EnemyView : MonoBehaviour
             ChangeState(new HurtState(this));
             Debug.Log(_EnemyHp);
             _EnemyHp -= 10;
+            
         }
         if(other.tag == "Parrying")
         {
             OnParryed();
+            GameManager.Instance.SuccessParrying();
             _WeaponCollider.enabled = false;
         }
     }
@@ -55,11 +56,11 @@ public class EnemyView : MonoBehaviour
     {
         ChangeState(new HurtState(this));
     }
-    public void OnAttackState()
+    public virtual void OnAttackState()
     {
         _WeaponCollider.enabled = true;
     }
-    public void OnAttackEnd()
+    public virtual void OnAttackEnd()
     {
         _WeaponCollider.enabled = false;
     }

@@ -15,13 +15,19 @@ public class PlayerStats : MonoBehaviour,IDamageble
     private void Awake()
     {
         _currentHp = _maxHp;
-        _currentMp = _maxMp;
+        _currentMp = 100;
     }
-
+    private void FixedUpdate()
+    {
+        UIManager.Instance.UpdateMP();
+    }
 
     public void ReadyForSkill()
     {
-        //UIManager.Instance.
+       
+            _Animator.SetTrigger("SP_Attack");
+            RhythmManager.Instance.OnSPAttackActive();
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -29,8 +35,11 @@ public class PlayerStats : MonoBehaviour,IDamageble
         {
             GameManager.Instance.ApplyDamage(10,this);
             _Animator.SetTrigger("Hurt");
-            UIManager.Instance.ApplyDamage();
+            UIManager.Instance.ApplyDamageToUI();
             Debug.Log(_currentHp);
+            GameManager.Instance.FillMP(10, this);
+            UIManager.Instance.FillMp();
+
         }
     }
 
@@ -43,11 +52,16 @@ public class PlayerStats : MonoBehaviour,IDamageble
             OnDeath();
         }
     }
+
+    public void FillMp(int amount)
+    {
+
+    }
     public void OnDeath()
     {
         Debug.Log("죽었");
         //TODO : 죽었을때 처리
         //애니메이션,씬 전환으로 처리할지 아니면 체크포인트로 돌아가는지
-
     }
+
 }

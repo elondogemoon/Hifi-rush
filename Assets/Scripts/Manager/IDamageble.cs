@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IDamageble {
 
     void ApplyDamage(int damage);
+    void FillMp(int amount);
 }

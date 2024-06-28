@@ -11,7 +11,6 @@ public class InitState : StateMachineBehaviour
         {
             _playerMove.enabled = false;
            // _playerMove._CharacterController.enabled = false;
-            Debug.Log("CharacterController disabled on state enter.");
         }
     }
 

@@ -12,7 +12,10 @@ public class PlayerAtk : MonoBehaviour
     Collider _ParringColider;
     [SerializeField]
     Collider _WeaponCollider;
-
+    [SerializeField]
+    Camera _Camera;
+    [SerializeField]
+    public GameObject _ParryVfx;
     private void Update()
     {
         Attack();
@@ -20,6 +23,13 @@ public class PlayerAtk : MonoBehaviour
 
     public void Attack()
     {
+        Vector3 cameraDirection = _Camera.transform.forward;
+        cameraDirection.y = 0; 
+        if (cameraDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(cameraDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5);
+        }
         if (Input.GetMouseButton(0))
         {
             Animator_Atk.SetTrigger("OnCloseAttackCombo");
@@ -30,7 +40,7 @@ public class PlayerAtk : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
-            ActiveSpAttack();
+            GameManager.Instance.CheckMpAndSkill();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -45,8 +55,7 @@ public class PlayerAtk : MonoBehaviour
 
     public void ActiveSpAttack()
     {
-        Animator_Atk.SetTrigger("SP_Attack");
-        RhythmManager.Instance.OnSPAttackActive();
+        
     }
     public void ActiveRhythmCircle()
     {
@@ -64,6 +73,7 @@ public class PlayerAtk : MonoBehaviour
     public void OffParrying()
     {
         _ParringColider.enabled = false;
+        _ParryVfx.SetActive(false);
     }
     public void OnAttack()
     {
