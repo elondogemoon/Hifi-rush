@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SfxManager : Singleton<SfxManager>
 {
+    [SerializeField] AudioClip _CircleOn;
     [SerializeField] AudioClip _CircleSuccess;
-    [SerializeField] AudioClip _SpSuccess;
     [SerializeField] AudioSource _AudioSource;
     [SerializeField] AudioClip _ParringSuccess;
     public void OnCircleSuccess()
@@ -13,14 +13,15 @@ public class SfxManager : Singleton<SfxManager>
         _AudioSource.clip = _CircleSuccess;
         _AudioSource.Play();
     }
-    public void OnSPAttackSuccess()
-    {
-        _AudioSource.clip = _SpSuccess;
-        _AudioSource.Play();
-    }
+    
     public void OnParringSuccess()
     {
         _AudioSource.clip = _ParringSuccess;
+        _AudioSource.Play();
+    }
+    public void OnCircleOn()
+    {
+        _AudioSource.clip = _CircleOn;
         _AudioSource.Play();
     }
 }

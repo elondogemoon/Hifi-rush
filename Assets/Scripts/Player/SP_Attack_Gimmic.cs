@@ -129,7 +129,7 @@ public class SP_Attack_Gimmic : MonoBehaviour
         }
         else
         {
-            SfxManager.Instance.OnSPAttackSuccess();
+            RhythmManager.Instance.OnSPAttackSuccess();
             gimmicGauge.fillAmount = 0;
 
         }

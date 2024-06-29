@@ -32,6 +32,7 @@ public class RhythmCircle : MonoBehaviour
         ResetAnimation();
         isAnimating = true;
         isClicked = false;
+        SfxManager.Instance.OnCircleOn();
         this.gameObject.SetActive(true);
     }
 
