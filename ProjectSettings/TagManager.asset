@@ -8,6 +8,7 @@ TagManager:
   - PlayerWeapon
   - Parrying
   - EnemyWeapon
+  - CutSceen
   layers:
   - Default
   - TransparentFX
