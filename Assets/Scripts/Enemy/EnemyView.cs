@@ -10,6 +10,7 @@ public class EnemyView : MonoBehaviour
     [SerializeField] public Collider _WeaponCollider;
     [SerializeField] public NavMeshAgent _navAgent;
     [SerializeField] public Collider _coiilder;
+    [SerializeField] private AudioSource _audioSource;
     private IEnemyState _enemyState;
     public Transform target;
 
@@ -63,5 +64,9 @@ public class EnemyView : MonoBehaviour
     public virtual void OnAttackEnd()
     {
         _WeaponCollider.enabled = false;
+    }
+    public void AtkSound()
+    {
+        _audioSource.Play();
     }
 }

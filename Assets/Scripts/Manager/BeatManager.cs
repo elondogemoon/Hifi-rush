@@ -8,8 +8,8 @@ public class BeatManager : MonoBehaviour
     [SerializeField] private float _bpm;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Intervals[] _intervals;
-    [SerializeField] private Animator _animator; 
-
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _enemyAnimator;
     private void Start()
     {
         UpdateAnimationSpeed();
@@ -29,6 +29,7 @@ public class BeatManager : MonoBehaviour
         if (_animator != null)
         {
             _animator.speed = _bpm / 100f;
+            _enemyAnimator.speed = _bpm / 100f;
         }
     }
 
