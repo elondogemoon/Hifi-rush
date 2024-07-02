@@ -30,11 +30,11 @@ public class PlayerAtk : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(cameraDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5);
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Animator_Atk.SetTrigger("OnCloseAttackCombo");
         }
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             Animator_Atk.SetTrigger("R_Attack");
         }
@@ -52,7 +52,7 @@ public class PlayerAtk : MonoBehaviour
         }
     }
 
-
+    
     public void ActiveSpAttack()
     {
         

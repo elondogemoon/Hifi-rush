@@ -29,7 +29,6 @@ public class BossAppearState : BossState
     public override void ExecuteOnUpdate()
     {
         var animinfo = _boss._animator.GetCurrentAnimatorStateInfo(0);
-        Debug.Log(animinfo.normalizedTime);
 
         if (animinfo.normalizedTime > 0.9)
         {

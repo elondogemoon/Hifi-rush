@@ -26889,7 +26889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6182603796661136421, guid: 33c52b784ddd93541b166bf312377aec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6811366549807937183, guid: 33c52b784ddd93541b166bf312377aec, type: 3}
       propertyPath: m_RootOrder
@@ -26897,7 +26897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811366549807937183, guid: 33c52b784ddd93541b166bf312377aec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6400013
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 6811366549807937183, guid: 33c52b784ddd93541b166bf312377aec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26905,7 +26905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811366549807937183, guid: 33c52b784ddd93541b166bf312377aec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.68
+      value: 0.828
       objectReference: {fileID: 0}
     - target: {fileID: 6811366549807937183, guid: 33c52b784ddd93541b166bf312377aec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26955,7 +26955,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 49034be2b325b7345b980facbaf7239f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -26963,6 +26963,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &1529494988
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544554859480331334}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &1529494987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544554859480331334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!4 &2172015790610312956 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6811366549807937183, guid: 33c52b784ddd93541b166bf312377aec, type: 3}

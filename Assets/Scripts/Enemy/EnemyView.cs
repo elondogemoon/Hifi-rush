@@ -39,7 +39,7 @@ public class EnemyView : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerWeapon")
+        if (other.gameObject.tag == "PlayerWeapon")
         {
             ChangeState(new HurtState(this));
             Debug.Log(_EnemyHp);

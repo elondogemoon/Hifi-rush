@@ -24,9 +24,8 @@ public class PlayerStats : MonoBehaviour,IDamageble
 
     public void ReadyForSkill()
     {
-       
-            _Animator.SetTrigger("SP_Attack");
-            RhythmManager.Instance.OnSPAttackActive();
+        _Animator.SetTrigger("SP_Attack");
+        RhythmManager.Instance.OnSPAttackActive();
         
     }
     private void OnTriggerEnter(Collider other)
@@ -55,7 +54,8 @@ public class PlayerStats : MonoBehaviour,IDamageble
 
     public void FillMp(int amount)
     {
-
+        _currentMp += amount;
+        
     }
     public void OnDeath()
     {

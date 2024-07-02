@@ -11,6 +11,7 @@ public class SP_Attack_Gimmic : MonoBehaviour
     [SerializeField] public Image gimmicGauge;
     [SerializeField] Image offCircle;
     [SerializeField] int moveCircleCount = 5; // Number of moveCircles
+    [SerializeField] AudioSource _audioSource;
     private float moveSpeed = 20f;
     private Coroutine moveCoroutine;
     private List<Image> moveCircles = new List<Image>();
@@ -105,6 +106,7 @@ public class SP_Attack_Gimmic : MonoBehaviour
         {
             if (Vector2.Distance(correctCircle.rectTransform.localPosition, moveCircle.rectTransform.localPosition) < 5f)
             {
+                _audioSource.Play();
                 gimmicGauge.fillAmount += 0.2f;
                 moveCircle.rectTransform.anchoredPosition = new Vector2(200, moveCircle.rectTransform.anchoredPosition.y);
                 _checkCount++;

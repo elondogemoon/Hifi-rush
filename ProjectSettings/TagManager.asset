@@ -9,6 +9,7 @@ TagManager:
   - Parrying
   - EnemyWeapon
   - CutSceen
+  - Gimmic
   layers:
   - Default
   - TransparentFX
