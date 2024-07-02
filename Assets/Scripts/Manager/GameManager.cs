@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
     {
         _playerAtk._ParryVfx.SetActive(true);
         SfxManager.Instance.OnParringSuccess();
+        _playerStats.FillMp(10);
     }
     public void CheckMpAndSkill()
     {

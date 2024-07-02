@@ -93,4 +93,8 @@ public class RhythmCircle : MonoBehaviour
         successEffect.SetActive(false);
 
     }
+    public bool IsAnimating()
+    {
+        return isAnimating;
+    }
 }

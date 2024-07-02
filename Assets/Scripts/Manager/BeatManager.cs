@@ -22,6 +22,7 @@ public class BeatManager : MonoBehaviour
             float sampledTime = (_audioSource.timeSamples / (_audioSource.clip.frequency * interval.GetIntervalLength(_bpm)));
             interval.CheckForNewInterval(sampledTime);
         }
+        
     }
 
     private void UpdateAnimationSpeed()

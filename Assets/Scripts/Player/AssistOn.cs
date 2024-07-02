@@ -14,10 +14,7 @@ public class AssistOn : MonoBehaviour
     private void Update()
     {
 
-        // else
-        // {
-
-        //}
+        
     }
     public void Disappear()
     {
@@ -30,7 +27,8 @@ public class AssistOn : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       
+        //CircleManager.Instance.StartGimmic();
+
     }
     private void OnTriggerStay(Collider other)
     {
@@ -46,11 +44,16 @@ public class AssistOn : MonoBehaviour
             _animator.SetTrigger("Appear");
 
         }
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
-        {
-            _animator.SetTrigger("Disappear");
-            Invoke("Disappear", 1);
+      //  if (Input.GetKeyUp(KeyCode.LeftAlt))
+       // {
+       //     _animator.SetTrigger("Disappear");
+       //     Invoke("Disappear", 1);
 
-        }
+       // }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        _animator.SetTrigger("Disappear");
+        Invoke("Disappear", 1);
     }
 }

@@ -12,10 +12,12 @@ public enum UIType
 }
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] Boss _boss;
     [SerializeField] PlayerStats _playerStats;
     [SerializeField] Image _hpBar;
     [SerializeField] Image _MpBar;
-    [SerializeField] GameObject _bossHpBar;
+    [SerializeField] GameObject _bossHpBar_bg;
+    [SerializeField] Image _bossBar;
     private SP_Attack_Gimmic SP_Attack_Gimmic;
    
     public void SuccessCircle()
@@ -53,6 +55,14 @@ public class UIManager : Singleton<UIManager>
     }
     public void ActiveBossHp()
     {
-        _bossHpBar.SetActive(true);
+        _bossHpBar_bg.SetActive(true);
+    }
+
+    public void ApplyDamageToUIBoss()
+    {
+        if (_bossBar != null)
+        {
+            _bossBar.fillAmount = (float)_boss._currentHp / _boss._bossHp;
+        }
     }
 }

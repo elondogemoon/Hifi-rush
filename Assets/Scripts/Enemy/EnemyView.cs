@@ -25,6 +25,7 @@ public class EnemyView : MonoBehaviour
         _enemyState?.ExitState();
         _enemyState = newState;
         _enemyState.EnterState();
+        
     }
 
     private void Update()

@@ -102,96 +102,9 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'neck_01' :
-      rotation error = 13.734273 deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'SK_ch4000|ch4000_action_000' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'spine_00' has translation
-      animation that will be discarded.\n\t'neck_01' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'SK_ch4000|ch4000_action_001'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'spine_00'
-      has translation animation that will be discarded.\n\t'neck_01' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_002' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_004' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_020' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_023' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_026' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_027' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_030' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_033' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'neck_01' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\nClip 'SK_ch4000|ch4000_action_036' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'spine_00' has translation
-      animation that will be discarded.\n\t'neck_01' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'SK_ch4000|ch4000_action_039'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'spine_00'
-      has translation animation that will be discarded.\n\nClip 'SK_ch4000|ch4000_action_042'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_045' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_action_047' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_event-roquefort_000' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'eye_side_L'
-      has translation animation that will be discarded.\n\t'eye_side_R' has translation
-      animation that will be discarded.\n\t'jaw_tip' has translation animation that
-      will be discarded.\n\nClip 'SK_ch4000|ch4000_event-roquefort_021' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'spine_00' has translation
-      animation that will be discarded.\n\t'neck_01' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'SK_ch4000|ch4000_event-roquefort_022'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'spine_00'
-      has translation animation that will be discarded.\n\t'neck_01' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_event-roquefort_040' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'SK_ch4000|ch4000_event-roquefort_100' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'spine_00' has translation animation that will be discarded.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'jaw_tip'
-      has translation animation that will be discarded.\n\nClip 'SK_ch4000|ch4000_event-roquefort_101'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'neck_01'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -419,12 +332,12 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
