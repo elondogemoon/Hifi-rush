@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18245648, g: 0.22519326, b: 0.28998265, a: 1}
+  m_IndirectSpecularColor: {r: 0.18245667, g: 0.2251936, b: 0.28998327, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3942,7 +3942,7 @@ MonoBehaviour:
   _audioSource: {fileID: 1944813531}
   timingError: 0.4
   audioOffset: 0
-  bpm: 20
+  bpm: 120
 --- !u!114 &2005800984 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2005800984, guid: 6b64413353b83483d93aa4ca738c3ece, type: 3}
