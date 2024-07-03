@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,9 +9,16 @@ public class BeatManager : MonoBehaviour
     [SerializeField] private Intervals[] _intervals;
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _enemyAnimator;
+    [SerializeField] private Animator _bossAnimator;
+    [SerializeField] private Boss boss;
+    private bool stateChanged = false;
     private void Start()
     {
         UpdateAnimationSpeed();
+        foreach (Intervals interval in _intervals)
+        {
+            interval.OnIntervalReached.AddListener(HandleIntervalEvent);
+        }
     }
 
     private void Update()
@@ -22,7 +28,6 @@ public class BeatManager : MonoBehaviour
             float sampledTime = (_audioSource.timeSamples / (_audioSource.clip.frequency * interval.GetIntervalLength(_bpm)));
             interval.CheckForNewInterval(sampledTime);
         }
-        
     }
 
     private void UpdateAnimationSpeed()
@@ -39,7 +44,22 @@ public class BeatManager : MonoBehaviour
         _bpm = bpm;
         UpdateAnimationSpeed();
     }
+
+    // steps 인자를 받는 메서드를 정의합니다.
+    private void HandleIntervalEvent(float steps)
+    {
+        if (steps == 1f && !stateChanged)
+        {
+
+           boss.ChangeState(new BossIdleState(boss));
+           stateChanged = true;
+           // Debug.Log("Boss animation triggered at step: " + steps);
+        }
+    }
 }
+
+
+
 
 [System.Serializable]
 public class Intervals
@@ -47,6 +67,9 @@ public class Intervals
     [SerializeField] private float _steps;
     [SerializeField] private UnityEvent _trigger;
     private int _lastInterval;
+
+   
+    public UnityEvent<float> OnIntervalReached = new UnityEvent<float>();
 
     public float GetIntervalLength(float bpm)
     {
@@ -59,6 +82,10 @@ public class Intervals
         {
             _lastInterval = Mathf.FloorToInt(interval);
             _trigger.Invoke();
+            OnIntervalReached.Invoke(_steps); // 이벤트 트리거
+            Debug.Log("Trigger invoked with steps: " + _steps);
         }
     }
 }
+
+

@@ -50,7 +50,7 @@ public class BossIdleState : BossState
     }
     public override void EnterState()
     {
-        _boss.StartCoroutine(WaitAndChangeState(1.36f)); 
+        _boss.StartCoroutine(WaitAndChangeState(1f)); 
     }
     public override void ExecuteOnUpdate()
     {

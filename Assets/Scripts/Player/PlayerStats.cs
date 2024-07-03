@@ -38,7 +38,6 @@ public class PlayerStats : MonoBehaviour,IDamageble
             Debug.Log(_currentHp);
             GameManager.Instance.FillMP(10, this);
             UIManager.Instance.FillMp();
-
         }
     }
 
@@ -55,6 +54,10 @@ public class PlayerStats : MonoBehaviour,IDamageble
     public void FillMp(int amount)
     {
         _currentMp += amount;
+        if (_currentMp <= 0 )
+        {
+            _currentMp = 0;
+        }
         
     }
     public void OnDeath()

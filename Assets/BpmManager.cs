@@ -45,6 +45,7 @@ public class BpmManager : Singleton<BpmManager>
 
     public void GoodBeat()
     {
-        Debug.Log("goodbeat");
+        //Debug.Log("goodbeat");
+        
     }
 }

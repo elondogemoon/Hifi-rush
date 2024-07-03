@@ -28,7 +28,7 @@ public class PlayerAtk : MonoBehaviour
         if (cameraDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(cameraDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.unscaledDeltaTime * 5);
         }
         if (Input.GetMouseButtonDown(0))
         {

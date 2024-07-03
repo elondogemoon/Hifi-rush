@@ -43,8 +43,8 @@ public class EnemyView : MonoBehaviour
         if (other.gameObject.tag == "PlayerWeapon")
         {
             ChangeState(new HurtState(this));
-            Debug.Log(_EnemyHp);
             _EnemyHp -= 10;
+            
             
         }
         if(other.tag == "Parrying")

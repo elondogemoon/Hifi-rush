@@ -57,11 +57,11 @@ public class PlayerMove : MonoBehaviour
             if (moveDirection != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.unscaledDeltaTime * turnSpeed);
             }
 
             // 캐릭터 이동
-            _CharacterController.Move(moveDirection * _MoveSpeed * Time.deltaTime);
+            _CharacterController.Move(moveDirection * _MoveSpeed * Time.unscaledDeltaTime);
         }
 
         // 점프 처리
@@ -75,14 +75,14 @@ public class PlayerMove : MonoBehaviour
         // 중력 적용 및 지면 체크
         if (!_CharacterController.isGrounded)
         {
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += gravity * Time.unscaledDeltaTime;
         }
         else
         {
             velocity.y = 0f;
             jumpCount = 0; // 캐릭터가 지면에 닿았을 때 점프 횟수 초기화
         }
-        _CharacterController.Move(velocity * Time.deltaTime);
+        _CharacterController.Move(velocity * Time.unscaledDeltaTime);
 
         // 애니메이터 업데이트
         float moveMagnitude = new Vector2(x, z).magnitude;

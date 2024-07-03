@@ -12,11 +12,12 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]PlayerAtk _playerAtk;
     [SerializeField] PlayerStats _playerStats;
     [SerializeField] EnemyView _enemyView;
+    [SerializeField] Boss _boss;
     public void ApplyDamage(int damage, IDamageble character)
     {
         character.ApplyDamage(damage);
     }
-    public void FillMP(int amount, IDamageble character)
+    public void FillMP(int amount, PlayerStats character)
     {
         character.FillMp(amount);
     }

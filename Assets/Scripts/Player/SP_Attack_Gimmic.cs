@@ -77,7 +77,7 @@ public class SP_Attack_Gimmic : MonoBehaviour
             bool allCirclesPassed = true;
             foreach (var circle in moveCircles)
             {
-                circle.rectTransform.anchoredPosition += Vector2.left * moveSpeed * Time.deltaTime;
+                circle.rectTransform.anchoredPosition += Vector2.left * moveSpeed * Time.unscaledDeltaTime;
 
                 if (circle.rectTransform.anchoredPosition.x > offCircle.rectTransform.anchoredPosition.x)
                 {
