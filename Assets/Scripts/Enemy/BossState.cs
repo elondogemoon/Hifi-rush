@@ -50,7 +50,7 @@ public class BossIdleState : BossState
     }
     public override void EnterState()
     {
-        _boss.StartCoroutine(WaitAndChangeState(1f)); 
+        _boss.StartCoroutine(WaitAndChangeState(0.36f)); 
     }
     public override void ExecuteOnUpdate()
     {
@@ -185,6 +185,16 @@ public class BossGimicState : BossState
     public override void EnterState()
     {
         _boss._animator.SetTrigger("Gimmic");
+        GameManager.Instance.OnBossGimmic();
+        _boss.StartCoroutine(WaitGimmic());
+    }
+
+    private IEnumerator WaitGimmic()
+    {
+        
+
+
+        yield return new WaitForSeconds(1.5f);
     }
 }
 public class BossDieState : BossState

@@ -23227,7 +23227,7 @@ MonoBehaviour:
   _maxHp: 100
   _currentHp: 0
   _maxMp: 100
-  _currentMp: 100
+  _currentMp: 0
 --- !u!114 &3535568148357691916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26876,6 +26876,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8434356402410039930, guid: f7212095f9ad35145b66ff65f450b4ee, type: 3}
   m_PrefabInstance: {fileID: 3124204825971902642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1846452999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798110835457450696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6872160930f715943a0521e0e02bc13c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffectPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
 --- !u!1001 &4657382904833923171
 PrefabInstance:
   m_ObjectHideFlags: 0

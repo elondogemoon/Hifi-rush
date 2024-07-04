@@ -56,7 +56,7 @@ public class EnemyView : MonoBehaviour
     }
     public void OnParryed()
     {
-        ChangeState(new HurtState(this));
+        //ChangeState(new HurtState(this));
     }
     public virtual void OnAttackState()
     {

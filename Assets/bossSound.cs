@@ -9,6 +9,7 @@ public class bossSound : MonoBehaviour
     [SerializeField] AudioClip atk2;
     [SerializeField] AudioClip atk3;
     [SerializeField] AudioClip atk4;
+    [SerializeField] AudioClip atk5;
     [SerializeField] AudioClip howling;
 
 
@@ -31,6 +32,16 @@ public class bossSound : MonoBehaviour
     public void Atk4()
     {
         _audioSource.clip = atk4;
+        _audioSource.Play();
+    }
+    public void Atk5()
+    {
+        _audioSource.clip = atk5;
+        _audioSource.Play();
+    }
+    public void Howling()
+    {
+        _audioSource.clip = howling;
         _audioSource.Play();
     }
 }

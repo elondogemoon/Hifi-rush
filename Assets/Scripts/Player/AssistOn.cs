@@ -56,4 +56,8 @@ public class AssistOn : MonoBehaviour
         _animator.SetTrigger("Disappear");
         Invoke("Disappear", 1);
     }
+    public void OnBossGimmicAssist()
+    {
+        _assistCharacter.SetActive(true);
+    }
 }

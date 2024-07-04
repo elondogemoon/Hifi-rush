@@ -9,7 +9,9 @@ public enum ChType
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField]PlayerAtk _playerAtk;
+    [SerializeField] AssistOn _assistOn;
+    [SerializeField] PlayerMove _playerMove;
+    [SerializeField] PlayerAtk _playerAtk;
     [SerializeField] PlayerStats _playerStats;
     [SerializeField] EnemyView _enemyView;
     [SerializeField] Boss _boss;
@@ -38,5 +40,12 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log("MP부족");
         }
+    }
+    public void OnBossGimmic()
+    {
+        _playerAtk.enabled = false;
+        _playerMove.enabled = false;
+        RhythmManager.Instance.OnBossGimmickRhythm();
+        _assistOn.OnBossGimmicAssist();
     }
 }

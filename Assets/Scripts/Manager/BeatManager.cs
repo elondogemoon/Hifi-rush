@@ -11,7 +11,6 @@ public class BeatManager : MonoBehaviour
     [SerializeField] private Animator _enemyAnimator;
     [SerializeField] private Animator _bossAnimator;
     [SerializeField] private Boss boss;
-    private bool stateChanged = false;
     private void Start()
     {
         UpdateAnimationSpeed();
@@ -48,11 +47,10 @@ public class BeatManager : MonoBehaviour
     // steps 인자를 받는 메서드를 정의합니다.
     private void HandleIntervalEvent(float steps)
     {
-        if (steps == 1f && !stateChanged)
+        if (steps == 0.25f )
         {
-
            boss.ChangeState(new BossIdleState(boss));
-           stateChanged = true;
+           
            // Debug.Log("Boss animation triggered at step: " + steps);
         }
     }
