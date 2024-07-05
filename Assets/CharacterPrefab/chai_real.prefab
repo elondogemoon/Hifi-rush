@@ -26888,7 +26888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872160930f715943a0521e0e02bc13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffectPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  hitEffectPrefab: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
 --- !u!1001 &4657382904833923171
 PrefabInstance:
   m_ObjectHideFlags: 0

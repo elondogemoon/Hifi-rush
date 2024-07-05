@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BeatManager : MonoBehaviour
+public class BeatManager : Singleton<BeatManager>
 {
     [SerializeField] private float _bpm;
     [SerializeField] private AudioSource _audioSource;
@@ -19,7 +19,10 @@ public class BeatManager : MonoBehaviour
             interval.OnIntervalReached.AddListener(HandleIntervalEvent);
         }
     }
-
+    private void Awake()
+    {
+        _audioSource.Play();
+    }
     private void Update()
     {
         foreach (Intervals interval in _intervals)
@@ -28,7 +31,10 @@ public class BeatManager : MonoBehaviour
             interval.CheckForNewInterval(sampledTime);
         }
     }
-
+    public void LowVolume()
+    {
+        _audioSource.volume = 0.2f;
+    }
     private void UpdateAnimationSpeed()
     {
         if (_animator != null)
@@ -37,7 +43,7 @@ public class BeatManager : MonoBehaviour
             _enemyAnimator.speed = _bpm / 100f;
         }
     }
-
+    
     public void SetBPM(float bpm)
     {
         _bpm = bpm;
@@ -47,7 +53,7 @@ public class BeatManager : MonoBehaviour
     // steps 인자를 받는 메서드를 정의합니다.
     private void HandleIntervalEvent(float steps)
     {
-        if (steps == 0.25f )
+        if (steps == 0.5f )
         {
            boss.ChangeState(new BossIdleState(boss));
            

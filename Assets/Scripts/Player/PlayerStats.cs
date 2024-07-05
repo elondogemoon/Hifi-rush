@@ -26,7 +26,6 @@ public class PlayerStats : MonoBehaviour,IDamageble
     {
         _Animator.SetTrigger("SP_Attack");
         RhythmManager.Instance.OnSPAttackActive();
-        
     }
     private void OnTriggerEnter(Collider other)
     {

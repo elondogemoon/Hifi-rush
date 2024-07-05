@@ -185,17 +185,17 @@ public class BossGimicState : BossState
     public override void EnterState()
     {
         _boss._animator.SetTrigger("Gimmic");
-        GameManager.Instance.OnBossGimmic();
-        _boss.StartCoroutine(WaitGimmic());
+        BeatManager.Instance.LowVolume();
+        _boss.StartCoroutine(WaitGimmic(5f)) ;
     }
 
-    private IEnumerator WaitGimmic()
+    private IEnumerator WaitGimmic(float waitTime)
     {
+        yield return new WaitForSeconds(waitTime);
+        GameManager.Instance.OnBossGimmic(); 
         
-
-
-        yield return new WaitForSeconds(1.5f);
     }
+    
 }
 public class BossDieState : BossState
 {

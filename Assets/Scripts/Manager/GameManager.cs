@@ -48,4 +48,14 @@ public class GameManager : Singleton<GameManager>
         RhythmManager.Instance.OnBossGimmickRhythm();
         _assistOn.OnBossGimmicAssist();
     }
+    public void OffBossGimmic()
+    {
+        _playerAtk.enabled = true;
+        _playerMove.enabled = true;
+
+    }
+    public void SuccessGimmic()
+    {
+        _boss._animator.SetTrigger("Success");
+    }
 }

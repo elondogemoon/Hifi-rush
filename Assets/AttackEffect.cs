@@ -11,7 +11,7 @@ public class AttackEffect : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // 피격 효과 생성
-            Instantiate(hitEffectPrefab, other.transform.position, Quaternion.identity);
+            Instantiate(hitEffectPrefab, other.transform.localPosition, Quaternion.identity);
 
             
         }

@@ -13,10 +13,13 @@ public class Boss : MonoBehaviour, IDamageble
     [SerializeField] public Collider _atkCollider;
     [SerializeField] public AudioSource _audioSource;
     [SerializeField] private float damageCooldown = 0.5f; // 데미지 쿨다운 시간
+    [SerializeField] public GameObject gimmicklaser;
+    [SerializeField] public Transform gimmickTransform;
 
     private IBossState _bossState;
     public Transform _target;
     private Dictionary<Collider, float> lastDamageTime = new Dictionary<Collider, float>();
+    private bool hasEnteredGimmickState = false; 
 
     private void Start()
     {
@@ -34,8 +37,10 @@ public class Boss : MonoBehaviour, IDamageble
 
     private void Update()
     {
-        if (_currentHp <= 50)
+        // 체력이 50 이하이고, 아직 기믹 상태로 변경된 적이 없는 경우
+        if (_currentHp <= 50 && !hasEnteredGimmickState)
         {
+            hasEnteredGimmickState = true;
             ChangeState(new BossGimicState(this));
         }
         _bossState?.ExecuteOnUpdate();
@@ -122,5 +127,14 @@ public class Boss : MonoBehaviour, IDamageble
     public void CrawAttack()
     {
 
+    }
+    public void Gimmick()
+    {
+        GameObject damageParticle = Instantiate(gimmicklaser, gimmickTransform.position, Quaternion.identity);
+        damageParticle.transform.forward = gimmickTransform.forward;
+    }
+    public void GimmickSuccess()
+    {
+        Destroy(gimmicklaser);
     }
 }

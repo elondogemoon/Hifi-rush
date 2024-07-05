@@ -9,7 +9,7 @@ public class RhythmManager : Singleton<RhythmManager>
 
    [SerializeField] RhythmCircle rhythmCircle;
     [SerializeField] SP_Attack_Gimmic SP_Attack_Gimmic;
-    [SerializeField] SP_Attack_Gimmic BossGimmic;
+    [SerializeField] Boss_Gimmick BossGimmic;
     [SerializeField] PlayerAtk playerAtk;
     [SerializeField] ShaderEffect _effect;
     public void CallRhythmCircle()
@@ -46,4 +46,15 @@ public class RhythmManager : Singleton<RhythmManager>
         BossGimmic.StartGimic();
     }
 
+    public void FailBossGimmick()
+    {
+        Debug.Log("fail");
+        BossGimmic.OffAttackGimic() ;
+    }
+    public void SuccessBossGimmick()
+    {
+        BossGimmic.OffAttackGimic();
+        Debug.Log("Success");
+        
+    }
 }

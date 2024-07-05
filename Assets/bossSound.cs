@@ -11,7 +11,7 @@ public class bossSound : MonoBehaviour
     [SerializeField] AudioClip atk4;
     [SerializeField] AudioClip atk5;
     [SerializeField] AudioClip howling;
-
+    [SerializeField] AudioClip gimmick;
 
     public void Atk1()
     {
@@ -43,5 +43,11 @@ public class bossSound : MonoBehaviour
     {
         _audioSource.clip = howling;
         _audioSource.Play();
+    }
+    public void Gimmick()
+    {
+        _audioSource.clip = gimmick;
+        _audioSource.Play();
+        
     }
 }
