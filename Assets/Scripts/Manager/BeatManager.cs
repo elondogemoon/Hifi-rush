@@ -11,6 +11,7 @@ public class BeatManager : Singleton<BeatManager>
     [SerializeField] private Animator _enemyAnimator;
     [SerializeField] private Animator _bossAnimator;
     [SerializeField] private Boss boss;
+
     private void Start()
     {
         UpdateAnimationSpeed();
@@ -19,10 +20,12 @@ public class BeatManager : Singleton<BeatManager>
             interval.OnIntervalReached.AddListener(HandleIntervalEvent);
         }
     }
+
     private void Awake()
     {
         _audioSource.Play();
     }
+
     private void Update()
     {
         foreach (Intervals interval in _intervals)
@@ -31,40 +34,44 @@ public class BeatManager : Singleton<BeatManager>
             interval.CheckForNewInterval(sampledTime);
         }
     }
+
     public void LowVolume()
     {
         _audioSource.volume = 0.2f;
     }
+
     private void UpdateAnimationSpeed()
     {
         if (_animator != null)
         {
             _animator.speed = _bpm / 100f;
             _enemyAnimator.speed = _bpm / 100f;
+            _bossAnimator.speed = _bpm / 100f; // 보스 애니메이터도 포함
         }
     }
-    
+
     public void SetBPM(float bpm)
     {
         _bpm = bpm;
         UpdateAnimationSpeed();
     }
 
-    // steps 인자를 받는 메서드를 정의합니다.
+    public void ChangeBackgroundMusic(AudioClip newClip, float newBPM)
+    {
+        _audioSource.clip = newClip;
+        _audioSource.Play();
+        SetBPM(newBPM);
+    }
+
     private void HandleIntervalEvent(float steps)
     {
-        if (steps == 0.5f )
+        if (steps == 0.5f)
         {
-           boss.ChangeState(new BossIdleState(boss));
-           
-           // Debug.Log("Boss animation triggered at step: " + steps);
+            boss.ChangeState(new BossIdleState(boss));
+            // Debug.Log("Boss animation triggered at step: " + steps);
         }
     }
 }
-
-
-
-
 [System.Serializable]
 public class Intervals
 {
@@ -72,7 +79,7 @@ public class Intervals
     [SerializeField] private UnityEvent _trigger;
     private int _lastInterval;
 
-   
+
     public UnityEvent<float> OnIntervalReached = new UnityEvent<float>();
 
     public float GetIntervalLength(float bpm)
@@ -91,5 +98,3 @@ public class Intervals
         }
     }
 }
-
-
