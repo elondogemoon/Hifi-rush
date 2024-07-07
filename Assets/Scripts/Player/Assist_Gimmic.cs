@@ -15,11 +15,15 @@ public class Assist_Gimmic : MonoBehaviour
     {
         Debug.Log("OnEnable");
         _animator.SetTrigger("Gimmic");
-        CircleManager.Instance.StartGimmick();
+        
     }
     
     public void OnSuccess()
     {
 
+    }
+    public void StartGimmic()
+    {
+        CircleManager.Instance.StartGimmick();
     }
 }

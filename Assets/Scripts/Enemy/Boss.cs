@@ -115,26 +115,29 @@ public class Boss : MonoBehaviour, IDamageble
         _audioSource.Play();
     }
 
-    public void OnAtk()
-    {
-        _atkCollider.enabled = true;
-    }
-
-    public void OffAtk()
-    {
-        _atkCollider.enabled = false;
-    }
+    
     public void CrawAttack()
     {
 
     }
     public void Gimmick()
     {
-        GameObject damageParticle = Instantiate(gimmicklaser, gimmickTransform.position, Quaternion.identity);
-        damageParticle.transform.forward = gimmickTransform.forward;
+        if (gimmicklaser != null)
+        {
+            Destroy(gimmicklaser); // 기존 파티클이 존재하면 먼저 파괴
+        }
+
+        gimmicklaser = Instantiate(gimmicklaser, gimmickTransform.position, Quaternion.identity);
+        gimmicklaser.transform.forward = gimmickTransform.forward;
+        Destroy(gimmicklaser, 5f); // 5초 후에 파괴
     }
+
     public void GimmickSuccess()
     {
-        Destroy(gimmicklaser);
+        if (gimmicklaser != null)
+        {
+            Destroy(gimmicklaser); // 파티클을 수동으로 파괴
+            gimmicklaser = null;
+        }
     }
 }

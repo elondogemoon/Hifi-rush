@@ -39,7 +39,10 @@ public class BeatManager : Singleton<BeatManager>
     {
         _audioSource.volume = 0.2f;
     }
-
+    public void HighVolume()
+    {
+        _audioSource.volume = 0.5f;
+    }
     private void UpdateAnimationSpeed()
     {
         if (_animator != null)

@@ -146,6 +146,7 @@ public class Boss_Gimmick : MonoBehaviour
     {
         if (_checkCount>=7)
         {
+            BeatManager.Instance.HighVolume();
             GameManager.Instance.OffBossGimmic();
             this.gameObject.SetActive(false);
 
