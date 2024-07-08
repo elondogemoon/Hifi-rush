@@ -58,4 +58,8 @@ public class GameManager : Singleton<GameManager>
     {
         _boss._animator.SetTrigger("Success");
     }
+    public void PlayerDeath()
+    {
+        _playerMove.enabled = false;
+    }
 }

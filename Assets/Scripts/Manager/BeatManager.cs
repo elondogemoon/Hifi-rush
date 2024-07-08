@@ -10,6 +10,7 @@ public class BeatManager : Singleton<BeatManager>
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _enemyAnimator;
     [SerializeField] private Animator _bossAnimator;
+    [SerializeField] private Animator _gunEnemyAnimator;
     [SerializeField] private Boss boss;
 
     private void Start()
@@ -50,6 +51,7 @@ public class BeatManager : Singleton<BeatManager>
             _animator.speed = _bpm / 100f;
             _enemyAnimator.speed = _bpm / 100f;
             _bossAnimator.speed = _bpm / 100f; // 보스 애니메이터도 포함
+            _gunEnemyAnimator.speed = _bpm / 100f;
         }
     }
 
@@ -68,7 +70,7 @@ public class BeatManager : Singleton<BeatManager>
 
     private void HandleIntervalEvent(float steps)
     {
-        if (steps == 0.5f)
+        if (steps == 1f)
         {
             boss.ChangeState(new BossIdleState(boss));
             // Debug.Log("Boss animation triggered at step: " + steps);

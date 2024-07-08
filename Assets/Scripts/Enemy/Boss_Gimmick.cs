@@ -17,6 +17,7 @@ public class Boss_Gimmick : MonoBehaviour
     private Coroutine moveCoroutine;
     private List<MoveCircle> moveCircles = new List<MoveCircle>();
     private int _checkCount;
+    public Animator _assistAnimator;
 
     private enum ClickType { Left, Right }
 
@@ -92,28 +93,34 @@ public class Boss_Gimmick : MonoBehaviour
         while (true)
         {
             bool allCirclesPassed = true;
-            foreach (var circle in moveCircles)
+
+            for (int i = moveCircles.Count - 1; i >= 0; i--)
             {
-                circle.Image.rectTransform.anchoredPosition += Vector2.left * moveSpeed * Time.deltaTime;
+                var circle = moveCircles[i];
+                if (circle.Image.enabled)
+                {
+                    circle.Image.rectTransform.anchoredPosition += Vector2.left * moveSpeed * Time.deltaTime;
 
-                if (circle.Image.rectTransform.anchoredPosition.x > offCircle.rectTransform.anchoredPosition.x)
-                {
-                    allCirclesPassed = false;
-                }
+                    if (circle.Image.rectTransform.anchoredPosition.x > offCircle.rectTransform.anchoredPosition.x)
+                    {
+                        allCirclesPassed = false;
+                    }
 
-                if (Input.GetMouseButtonDown(0) && circle.ClickType == ClickType.Left) // Left click
-                {
-                    CheckCorrect(circle);
-                }
-                else if (Input.GetMouseButtonDown(1) && circle.ClickType == ClickType.Right) // Right click
-                {
-                    CheckCorrect(circle);
+                    if (Input.GetMouseButtonDown(0) && circle.ClickType == ClickType.Left) // Left click
+                    {
+                        CheckCorrect(circle);
+                    }
+                    else if (Input.GetMouseButtonDown(1) && circle.ClickType == ClickType.Right) // Right click
+                    {
+                        CheckCorrect(circle);
+                    }
                 }
             }
 
             if (allCirclesPassed)
             {
-                EndGimic();
+                // 모든 원이 화면을 벗어나면, 성공 또는 실패 판단
+                CheckSuccessorFail();
                 yield break;
             }
 
@@ -127,8 +134,10 @@ public class Boss_Gimmick : MonoBehaviour
         {
             if (Vector2.Distance(correctCircle.rectTransform.localPosition, moveCircle.Image.rectTransform.localPosition) < 5f)
             {
+                _assistAnimator.SetTrigger("1");
                 _audioSource.Play();
-                gimmicGauge.fillAmount += 0.2f;
+                gimmicGauge.fillAmount += 0.1f;
+                moveCircle.Image.enabled = false;
                 moveCircle.Image.rectTransform.anchoredPosition = new Vector2(200, moveCircle.Image.rectTransform.anchoredPosition.y);
                 _checkCount++;
                 CheckGimmick();
@@ -144,25 +153,31 @@ public class Boss_Gimmick : MonoBehaviour
 
     public void CheckGimmick()
     {
-        if (_checkCount>=7)
+        if (_checkCount >= 7)
         {
             BeatManager.Instance.HighVolume();
             GameManager.Instance.OffBossGimmic();
             this.gameObject.SetActive(false);
-
+        }
+        else
+        {
+            // 필요 시 추가 로직
         }
     }
+
     public void CheckSuccessorFail()
     {
         if (gimmicGauge.fillAmount < 0.8f)
         {
+            BeatManager.Instance.HighVolume();
             RhythmManager.Instance.FailBossGimmick();
             GameManager.Instance.OffBossGimmic();
             this.gameObject.SetActive(false);
-
         }
         else
         {
+            _assistAnimator.SetTrigger("Success");
+            BeatManager.Instance.HighVolume();
             RhythmManager.Instance.SuccessBossGimmick();
             GameManager.Instance.SuccessGimmic();
             this.gameObject.SetActive(false);

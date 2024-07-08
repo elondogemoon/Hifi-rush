@@ -133,7 +133,6 @@ public class SP_Attack_Gimmic : MonoBehaviour
         {
             RhythmManager.Instance.OnSPAttackSuccess();
             gimmicGauge.fillAmount = 0;
-
         }
     }
 }

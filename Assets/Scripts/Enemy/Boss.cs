@@ -15,7 +15,7 @@ public class Boss : MonoBehaviour, IDamageble
     [SerializeField] private float damageCooldown = 0.5f; // 데미지 쿨다운 시간
     [SerializeField] public GameObject gimmicklaser;
     [SerializeField] public Transform gimmickTransform;
-
+    [SerializeField] public GameObject laser;
     private IBossState _bossState;
     public Transform _target;
     private Dictionary<Collider, float> lastDamageTime = new Dictionary<Collider, float>();
@@ -116,20 +116,17 @@ public class Boss : MonoBehaviour, IDamageble
     }
 
     
-    public void CrawAttack()
-    {
-
-    }
+    
     public void Gimmick()
     {
         if (gimmicklaser != null)
         {
-            Destroy(gimmicklaser); // 기존 파티클이 존재하면 먼저 파괴
+            Destroy(gimmicklaser); 
         }
 
         gimmicklaser = Instantiate(gimmicklaser, gimmickTransform.position, Quaternion.identity);
         gimmicklaser.transform.forward = gimmickTransform.forward;
-        Destroy(gimmicklaser, 5f); // 5초 후에 파괴
+        Destroy(gimmicklaser, 5f); 
     }
 
     public void GimmickSuccess()
@@ -138,6 +135,12 @@ public class Boss : MonoBehaviour, IDamageble
         {
             Destroy(gimmicklaser); // 파티클을 수동으로 파괴
             gimmicklaser = null;
+        }
+        else
+        {
+            laser = Instantiate(laser, gimmickTransform.position, Quaternion.identity);
+            laser.transform.forward = gimmickTransform.forward;
+            Destroy(laser, 4f);
         }
     }
 }

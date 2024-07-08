@@ -61,7 +61,8 @@ public class PlayerStats : MonoBehaviour,IDamageble
     }
     public void OnDeath()
     {
-        Debug.Log("죽었");
+        _Animator.SetTrigger("Die");
+        GameManager.Instance.PlayerDeath();
         //TODO : 죽었을때 처리
         //애니메이션,씬 전환으로 처리할지 아니면 체크포인트로 돌아가는지
     }

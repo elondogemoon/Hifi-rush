@@ -7,11 +7,12 @@ public class RhythmManager : Singleton<RhythmManager>
     [SerializeField] AudioSource _AudioSource;
     [SerializeField] AudioClip _SpSuccess;
 
-   [SerializeField] RhythmCircle rhythmCircle;
+    [SerializeField] RhythmCircle rhythmCircle;
     [SerializeField] SP_Attack_Gimmic SP_Attack_Gimmic;
     [SerializeField] Boss_Gimmick BossGimmic;
     [SerializeField] PlayerAtk playerAtk;
     [SerializeField] ShaderEffect _effect;
+    [SerializeField] Animator _animator;
     public void CallRhythmCircle()
     {
         rhythmCircle.StartAnimation();
