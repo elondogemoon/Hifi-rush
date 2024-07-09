@@ -99,7 +99,7 @@ public class Intervals
             _lastInterval = Mathf.FloorToInt(interval);
             _trigger.Invoke();
             OnIntervalReached.Invoke(_steps); // 이벤트 트리거
-            Debug.Log("Trigger invoked with steps: " + _steps);
+            
         }
     }
 }

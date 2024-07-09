@@ -51,10 +51,11 @@ public class RhythmManager : Singleton<RhythmManager>
     {
         Debug.Log("fail");
         BossGimmic.OffAttackGimic() ;
+        GameManager.Instance.FailGimmic();
     }
     public void SuccessBossGimmick()
     {
-        BossGimmic.OffAttackGimic();
+      //  BossGimmic.OffAttackGimic();
         Debug.Log("Success");
         
     }

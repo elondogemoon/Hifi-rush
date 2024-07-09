@@ -52,11 +52,14 @@ public class GameManager : Singleton<GameManager>
     {
         _playerAtk.enabled = true;
         _playerMove.enabled = true;
-
     }
     public void SuccessGimmic()
     {
         _boss._animator.SetTrigger("Success");
+    }
+    public void FailGimmic()
+    {
+        _boss._animator.SetTrigger("Fail");
     }
     public void PlayerDeath()
     {

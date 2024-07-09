@@ -9,9 +9,14 @@ public class RhythmCircle : MonoBehaviour
     [SerializeField] float initialScale = 1f; // 큰 원의 초기 크기
     [SerializeField] float targetScale = 0.2f; // 작은 원과 일치하는 큰 원의 목표 크기
     [SerializeField] GameObject great; // "Great" 텍스트
+    [SerializeField] GameObject perfect; // "Perfect" 텍스트 추가
     [SerializeField] GameObject successEffect; // 성공 효과
     [SerializeField] GameObject damageParticlePrefab; // 데미지 파티클 프리팹
     [SerializeField] Transform playerTransform; // 플레이어의 위치 참조
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _audioClip;
+    [SerializeField] AudioClip _audioClip1;
+
     private bool isAnimating = false;
     private bool isClicked = false;
 
@@ -44,6 +49,7 @@ public class RhythmCircle : MonoBehaviour
         bigCircleImage.enabled = true;
         smallCircleImage.enabled = true;
         great.SetActive(false);
+        perfect.SetActive(false); // 새 텍스트 초기화
     }
 
     private void UpdateAnimation()
@@ -75,11 +81,27 @@ public class RhythmCircle : MonoBehaviour
         isClicked = true;
         isAnimating = false;
         Debug.Log("Perfect Timing!");
-
         SfxManager.Instance.OnCircleSuccess();
         successEffect.SetActive(true);
-        great.SetActive(true);
-        Invoke("OffGreat", 2);
+
+        // 랜덤하게 "Great" 또는 "Perfect" 활성화
+        if (Random.value > 0.5f)
+        {
+            great.SetActive(true);
+            _audioSource.clip = _audioClip;
+            _audioSource.Play();
+
+        }
+        else
+        {
+            perfect.SetActive(true);
+            _audioSource.clip = _audioClip1;
+            _audioSource.Play();
+        }
+
+        
+
+        Invoke("OffGreatAndPerfect", 2);
         OffCircle();
 
         PlayDamageParticle();
@@ -89,14 +111,11 @@ public class RhythmCircle : MonoBehaviour
     {
         if (damageParticlePrefab != null && playerTransform != null)
         {
-            // 플레이어 앞에 첫 번째 파티클 생성
             Vector3 spawnPosition = playerTransform.position + playerTransform.forward * 2f;
             GameObject damageParticle = Instantiate(damageParticlePrefab, spawnPosition, Quaternion.identity);
 
-            // 필요에 따라 파티클의 방향을 플레이어의 앞쪽으로 설정
             damageParticle.transform.forward = playerTransform.forward;
 
-            // 두 번째 파티클 생성을 0.5초 지연
             Invoke("SpawnSecondParticle", 0.5f);
         }
     }
@@ -114,17 +133,16 @@ public class RhythmCircle : MonoBehaviour
         }
     }
 
-
-
     private void OffCircle()
     {
         smallCircleImage.enabled = false;
         bigCircleImage.enabled = false;
     }
 
-    private void OffGreat()
+    private void OffGreatAndPerfect()
     {
         great.SetActive(false);
+        perfect.SetActive(false);
         successEffect.SetActive(false);
     }
 

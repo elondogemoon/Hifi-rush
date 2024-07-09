@@ -17,14 +17,24 @@ public class PulseToBeat : MonoBehaviour
             StartCoroutine(TestBeat());
         }
     }
+    private void OnEnable()
+    {
+        _startSize = transform.localScale;
+        if (_useTestBeat)
+        {
+            StartCoroutine(TestBeat());
+        }
+    }
     private void Update()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, _startSize, Time.deltaTime * _returnSpeed);
     }
+
     public void Pulse()
     {
         transform.localScale = _startSize * _pulseSize;
     }
+
     IEnumerator TestBeat()
     {
         while (true)

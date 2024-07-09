@@ -19,6 +19,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] GameObject _bossHpBar_bg;
     [SerializeField] Image _bossBar;
     private SP_Attack_Gimmic SP_Attack_Gimmic;
+    [SerializeField] Image _fight;
    
     public void SuccessCircle()
     {
@@ -64,5 +65,14 @@ public class UIManager : Singleton<UIManager>
         {
             _bossBar.fillAmount = (float)_boss._currentHp / _boss._bossHp;
         }
+    }
+    public void StartFight()
+    {
+        _fight.enabled = true;
+        Invoke(nameof(DisableFight), 1f);
+    }
+    public void DisableFight()
+    {
+        _fight.enabled = false;
     }
 }

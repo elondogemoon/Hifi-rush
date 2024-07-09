@@ -11,6 +11,7 @@ public class cutScene : MonoBehaviour
     public Animator animator;
     public GameObject[] explosionObjects; // 폭발할 오브젝트들
     public GameObject explosionPrefab; // 폭발 파티클 프리팹
+    public GameObject bossHp;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class cutScene : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             pd.Play(ta[0]);
-            Invoke(nameof(PlayExplosions), 1f); // 1초 후 폭발 시작
+            Invoke(nameof(PlayExplosions), 1.5f); // 1초 후 폭발 시작
             Invoke(nameof(PlayBoss), 7.8f); // 7.8초 후 보스 시작
         }
     }
@@ -45,11 +46,11 @@ public class cutScene : MonoBehaviour
 
             if (explosionCount % 4 == 0)
             {
-                yield return new WaitForSeconds(1.5f); // 4번 폭발 후 1초 대기
+                yield return new WaitForSeconds(1.8f); // 4번 폭발 후 1초 대기
             }
             else
             {
-                yield return new WaitForSeconds(0.5f); // 각 폭발 사이의 간격 (0.5초)
+                yield return new WaitForSeconds(0.3f); // 각 폭발 사이의 간격 (0.5초)
             }
         }
     }
@@ -57,5 +58,11 @@ public class cutScene : MonoBehaviour
     public void PlayBoss()
     {
         animator.enabled = true;
+        bossHp.SetActive(true);
+        Invoke(nameof(Fight),3f);
+    }
+    public void Fight()
+    {
+        UIManager.Instance.StartFight();
     }
 }

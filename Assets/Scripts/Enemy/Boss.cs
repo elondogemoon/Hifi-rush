@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour, IDamageble
     [SerializeField] public GameObject gimmicklaser;
     [SerializeField] public Transform gimmickTransform;
     [SerializeField] public GameObject laser;
+    private bool isDie = false;
     private IBossState _bossState;
     public Transform _target;
     private Dictionary<Collider, float> lastDamageTime = new Dictionary<Collider, float>();
@@ -44,6 +45,11 @@ public class Boss : MonoBehaviour, IDamageble
             ChangeState(new BossGimicState(this));
         }
         _bossState?.ExecuteOnUpdate();
+        if (_currentHp <= 0&&!isDie)
+        {
+            _animator.SetTrigger("Die");
+            isDie = true;
+        }
     }
 
     public void OnAnimation_ChangeBossState()
@@ -136,11 +142,18 @@ public class Boss : MonoBehaviour, IDamageble
             Destroy(gimmicklaser); // 파티클을 수동으로 파괴
             gimmicklaser = null;
         }
-        else
+    }
+    public void GimmickFail()
+    {
+        if(gimmicklaser != null)
         {
             laser = Instantiate(laser, gimmickTransform.position, Quaternion.identity);
             laser.transform.forward = gimmickTransform.forward;
             Destroy(laser, 4f);
         }
+    }
+    public void Fight()
+    {
+        UIManager.Instance.StartFight();
     }
 }

@@ -96,6 +96,7 @@ public class AtkState : StateBase
     }
     public override void ExitState()
     {
+
     }
 }
 

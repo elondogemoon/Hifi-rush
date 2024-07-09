@@ -7,11 +7,11 @@ public class Boss_Gimmick : MonoBehaviour
 {
     [SerializeField] GameObject _spAttackbg;
     [SerializeField] Image correctCircle;
-    [SerializeField] Image leftClickCirclePrefab; // Prefab for left click circles
-    [SerializeField] Image rightClickCirclePrefab; // Prefab for right click circles
+    [SerializeField] Image leftClickCirclePrefab; // 왼쪽 클릭 원의 프리팹
+    [SerializeField] Image rightClickCirclePrefab; // 오른쪽 클릭 원의 프리팹
     [SerializeField] public Image gimmicGauge;
     [SerializeField] Image offCircle;
-    [SerializeField] int totalCircleCount = 6; // Total number of circles
+    [SerializeField] int totalCircleCount = 6; // 원의 총 개수
     [SerializeField] AudioSource _audioSource;
     private float moveSpeed = 10f;
     private Coroutine moveCoroutine;
@@ -51,6 +51,7 @@ public class Boss_Gimmick : MonoBehaviour
             StopCoroutine(moveCoroutine);
             moveCoroutine = null;
         }
+        Debug.Log("EndGimic 호출"); // 디버그 로그 추가
         CheckSuccessorFail();
         ClearMoveCircles();
     }
@@ -61,7 +62,7 @@ public class Boss_Gimmick : MonoBehaviour
 
         for (int i = 0; i < totalCircleCount; i++)
         {
-            ClickType clickType = (Random.Range(0, 2) == 0) ? ClickType.Left : ClickType.Right; // Randomly assign click type
+            ClickType clickType = (Random.Range(0, 2) == 0) ? ClickType.Left : ClickType.Right; // 무작위로 클릭 타입 지정
             Image moveCircleImage;
 
             if (clickType == ClickType.Left)
@@ -100,17 +101,19 @@ public class Boss_Gimmick : MonoBehaviour
                 if (circle.Image.enabled)
                 {
                     circle.Image.rectTransform.anchoredPosition += Vector2.left * moveSpeed * Time.deltaTime;
+                    Debug.Log($"원 위치: {circle.Image.rectTransform.anchoredPosition.x}"); // 디버그 로그 추가
 
-                    if (circle.Image.rectTransform.anchoredPosition.x > offCircle.rectTransform.anchoredPosition.x)
+                    // 원이 offCircle보다 왼쪽에 있으면 allCirclesPassed를 false로 설정
+                    if (circle.Image.rectTransform.anchoredPosition.x + circle.Image.rectTransform.rect.width / 2 > offCircle.rectTransform.anchoredPosition.x)
                     {
                         allCirclesPassed = false;
                     }
 
-                    if (Input.GetMouseButtonDown(0) && circle.ClickType == ClickType.Left) // Left click
+                    if (Input.GetMouseButtonDown(0) && circle.ClickType == ClickType.Left) // 왼쪽 클릭
                     {
                         CheckCorrect(circle);
                     }
-                    else if (Input.GetMouseButtonDown(1) && circle.ClickType == ClickType.Right) // Right click
+                    else if (Input.GetMouseButtonDown(1) && circle.ClickType == ClickType.Right) // 오른쪽 클릭
                     {
                         CheckCorrect(circle);
                     }
@@ -120,6 +123,7 @@ public class Boss_Gimmick : MonoBehaviour
             if (allCirclesPassed)
             {
                 // 모든 원이 화면을 벗어나면, 성공 또는 실패 판단
+                Debug.Log("모든 원이 화면을 벗어남"); // 디버그 로그 추가
                 CheckSuccessorFail();
                 yield break;
             }
@@ -136,10 +140,11 @@ public class Boss_Gimmick : MonoBehaviour
             {
                 _assistAnimator.SetTrigger("1");
                 _audioSource.Play();
-                gimmicGauge.fillAmount += 0.1f;
+                gimmicGauge.fillAmount += 0.2f;
                 moveCircle.Image.enabled = false;
                 moveCircle.Image.rectTransform.anchoredPosition = new Vector2(200, moveCircle.Image.rectTransform.anchoredPosition.y);
                 _checkCount++;
+                Debug.Log($"원 체크: {_checkCount}"); // 디버그 로그 추가
                 CheckGimmick();
             }
         }
@@ -147,7 +152,7 @@ public class Boss_Gimmick : MonoBehaviour
 
     public void OffAttackGimic()
     {
-        Debug.Log(_checkCount);
+        Debug.Log($"OffAttackGimic 호출, 체크된 원 개수: {_checkCount}"); // 디버그 로그 추가
         _spAttackbg.gameObject.SetActive(false);
     }
 
@@ -155,18 +160,21 @@ public class Boss_Gimmick : MonoBehaviour
     {
         if (_checkCount >= 7)
         {
+            GameManager.Instance.SuccessGimmic();
             BeatManager.Instance.HighVolume();
             GameManager.Instance.OffBossGimmic();
             this.gameObject.SetActive(false);
         }
         else
         {
-            // 필요 시 추가 로직
+            GameManager.Instance.FailGimmic();
+            Debug.Log("else");
         }
     }
 
     public void CheckSuccessorFail()
     {
+        Debug.Log($"Gimmick 체크: {gimmicGauge.fillAmount}"); // 디버그 로그 추가
         if (gimmicGauge.fillAmount < 0.8f)
         {
             BeatManager.Instance.HighVolume();
