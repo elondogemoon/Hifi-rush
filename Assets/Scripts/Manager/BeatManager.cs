@@ -70,7 +70,7 @@ public class BeatManager : Singleton<BeatManager>
 
     private void HandleIntervalEvent(float steps)
     {
-        if (steps == 1f)
+        if (steps == 0.5f)
         {
             boss.ChangeState(new BossIdleState(boss));
             // Debug.Log("Boss animation triggered at step: " + steps);
