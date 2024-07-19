@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float turnSpeed = 5.0f;
     [SerializeField] private float jumpHeight = 2.0f;
 
-    [SerializeField] public CharacterController _CharacterController;
+    public CharacterController _CharacterController;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 velocity = Vector3.zero;
     private float gravity = -9.81f;

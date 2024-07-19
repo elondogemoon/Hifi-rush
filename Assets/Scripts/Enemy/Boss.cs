@@ -5,17 +5,17 @@ using UnityEngine.AI;
 
 public class Boss : MonoBehaviour, IDamageble
 {
-    public int _currentHp;
     [SerializeField] public int _bossHp = 200;
-    [SerializeField] public Animator _animator;
-    [SerializeField] public NavMeshAgent _navAgent;
-    [SerializeField] public Collider _collider;
-    [SerializeField] public Collider _atkCollider;
-    [SerializeField] public AudioSource _audioSource;
     [SerializeField] private float damageCooldown = 0.5f; // 데미지 쿨다운 시간
-    [SerializeField] public GameObject gimmicklaser;
-    [SerializeField] public Transform gimmickTransform;
-    [SerializeField] public GameObject laser;
+    public int _currentHp;
+    public Animator _animator;
+    public NavMeshAgent _navAgent;
+    public Collider _collider;
+    public Collider _atkCollider;
+    public AudioSource _audioSource;
+    public GameObject gimmicklaser;
+    public Transform gimmickTransform;
+    public GameObject laser;
     private bool isDie = false;
     private IBossState _bossState;
     public Transform _target;

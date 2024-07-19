@@ -8,10 +8,10 @@ public class SP_Attack_Gimmic : MonoBehaviour
     [SerializeField] GameObject _spAttackbg;
     [SerializeField] Image correctCircle;
     [SerializeField] Image moveCirclePrefab; // Prefab for moveCircle
-    [SerializeField] public Image gimmicGauge;
     [SerializeField] Image offCircle;
     [SerializeField] int moveCircleCount = 5; // Number of moveCircles
     [SerializeField] AudioSource _audioSource;
+    public Image gimmicGauge;
     private float moveSpeed = 20f;
     private Coroutine moveCoroutine;
     private List<Image> moveCircles = new List<Image>();

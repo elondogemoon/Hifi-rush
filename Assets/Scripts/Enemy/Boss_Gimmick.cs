@@ -9,15 +9,15 @@ public class Boss_Gimmick : MonoBehaviour
     [SerializeField] Image correctCircle;
     [SerializeField] Image leftClickCirclePrefab; // 왼쪽 클릭 원의 프리팹
     [SerializeField] Image rightClickCirclePrefab; // 오른쪽 클릭 원의 프리팹
-    [SerializeField] public Image gimmicGauge;
     [SerializeField] Image offCircle;
     [SerializeField] int totalCircleCount = 6; // 원의 총 개수
     [SerializeField] AudioSource _audioSource;
+    public Image gimmicGauge;
+    public Animator _assistAnimator;
     private float moveSpeed = 10f;
     private Coroutine moveCoroutine;
     private List<MoveCircle> moveCircles = new List<MoveCircle>();
     private int _checkCount;
-    public Animator _assistAnimator;
 
     private enum ClickType { Left, Right }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAtk : MonoBehaviour
 {
-    [SerializeField]
+    
     public Animator Animator_Atk;
     [SerializeField]
     GameObject Weapon;
@@ -14,7 +14,6 @@ public class PlayerAtk : MonoBehaviour
     Collider _WeaponCollider;
     [SerializeField]
     Camera _Camera;
-    [SerializeField]
     public GameObject _ParryVfx;
     private void Update()
     {
@@ -53,10 +52,7 @@ public class PlayerAtk : MonoBehaviour
     }
 
     
-    public void ActiveSpAttack()
-    {
-        
-    }
+    
     public void ActiveRhythmCircle()
     {
         RhythmManager.Instance.CallRhythmCircle();
