@@ -20,17 +20,7 @@ public class SpawnManager : Singleton<SpawnManager>
     // 구역 열거형
     public enum Zone { Zone1, Zone2, Zone3 }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // 여기에 초기화 코드가 필요하면 추가
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // 필요시 업데이트 코드 추가
-    }
+   
 
     public void SpawnEnemy(string enemyType, Zone zone)
     {
@@ -87,9 +77,6 @@ public class SpawnManager : Singleton<SpawnManager>
                     break;
             }
         }
-        else
-        {
-            Debug.LogWarning("적 유형이 올바르지 않거나 스폰 포지션이 설정되지 않았습니다: " + enemyType);
-        }
+        
     }
 }

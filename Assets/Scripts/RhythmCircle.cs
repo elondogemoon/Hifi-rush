@@ -56,7 +56,7 @@ public class RhythmCircle : MonoBehaviour
     {
         bigCircleImage.transform.localScale -= new Vector3(shrinkSpeed, shrinkSpeed, 0) * Time.deltaTime;
 
-        if (Mathf.Abs(bigCircleImage.transform.localScale.x - targetScale) < 0.05f)
+        if (Mathf.Abs(bigCircleImage.transform.localScale.x - targetScale) < 0.09f)
         {
             // 마우스 클릭 확인
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))

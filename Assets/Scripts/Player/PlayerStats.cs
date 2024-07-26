@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour,IDamageble
 {
@@ -63,6 +64,7 @@ public class PlayerStats : MonoBehaviour,IDamageble
     {
         _Animator.SetTrigger("Die");
         GameManager.Instance.PlayerDeath();
+        SceneManager.LoadScene(0);
         //TODO : 죽었을때 처리
         //애니메이션,씬 전환으로 처리할지 아니면 체크포인트로 돌아가는지
     }

@@ -83,7 +83,7 @@ public class Intervals
     [SerializeField] private float _steps;
     [SerializeField] private UnityEvent _trigger;
     private int _lastInterval;
-
+    
 
     public UnityEvent<float> OnIntervalReached = new UnityEvent<float>();
 

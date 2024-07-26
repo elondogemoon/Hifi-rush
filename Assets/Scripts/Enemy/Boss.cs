@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour, IDamageble
 {
@@ -48,10 +49,16 @@ public class Boss : MonoBehaviour, IDamageble
         if (_currentHp <= 0&&!isDie)
         {
             _animator.SetTrigger("Die");
+            StartCoroutine(BossClear());
             isDie = true;
         }
     }
 
+    IEnumerator BossClear()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
+    }
     public void OnAnimation_ChangeBossState()
     {
         ChangeState(new BossIdleState(this));
@@ -107,6 +114,7 @@ public class Boss : MonoBehaviour, IDamageble
         if (_currentHp <= 0)
         {
             _currentHp = 0;
+            SceneManager.LoadScene(0);
             // Add logic for boss death if needed
         }
     }
