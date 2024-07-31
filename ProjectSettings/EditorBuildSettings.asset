@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boss.unity
     guid: b90dfa763bb8856469107b65fd3ffa7d
+  - enabled: 1
+    path: Assets/Scenes/OverScene.unity
+    guid: 0e332f085461ecd44ad20e5c39e87ca5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7004555a1eeaad840b9a7d008b28ffb9, type: 2}

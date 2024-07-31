@@ -10,7 +10,7 @@ public class spawn : MonoBehaviour
         {
             SpawnManager.Instance.SpawnEnemy("sword",SpawnManager.Zone.Zone1);
             SpawnManager.Instance.SpawnEnemy("sword", SpawnManager.Zone.Zone1);
-            SpawnManager.Instance.SpawnEnemy("sword", SpawnManager.Zone.Zone1);
+            
             
         }
     }

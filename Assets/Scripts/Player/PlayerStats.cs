@@ -47,7 +47,8 @@ public class PlayerStats : MonoBehaviour,IDamageble
         if (_currentHp <= 0)
         {
             _currentHp = 0;
-            OnDeath();
+            _Animator.SetTrigger("Die");
+            Invoke(nameof(OnDeath), 2);
         }
     }
 
@@ -62,11 +63,10 @@ public class PlayerStats : MonoBehaviour,IDamageble
     }
     public void OnDeath()
     {
-        _Animator.SetTrigger("Die");
+        
         GameManager.Instance.PlayerDeath();
-        SceneManager.LoadScene(0);
-        //TODO : 죽었을때 처리
-        //애니메이션,씬 전환으로 처리할지 아니면 체크포인트로 돌아가는지
+        SceneManager.LoadScene(2);
+        
     }
 
 }

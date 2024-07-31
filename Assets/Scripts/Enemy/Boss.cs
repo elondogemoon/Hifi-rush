@@ -56,7 +56,7 @@ public class Boss : MonoBehaviour, IDamageble
 
     IEnumerator BossClear()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);
     }
     public void OnAnimation_ChangeBossState()
@@ -114,7 +114,7 @@ public class Boss : MonoBehaviour, IDamageble
         if (_currentHp <= 0)
         {
             _currentHp = 0;
-            SceneManager.LoadScene(0);
+            
             // Add logic for boss death if needed
         }
     }

@@ -49,7 +49,6 @@ MonoBehaviour:
   _zone1SpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   _zone2SpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
