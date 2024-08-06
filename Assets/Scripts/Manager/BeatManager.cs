@@ -12,7 +12,7 @@ public class BeatManager : Singleton<BeatManager>
     [SerializeField] private Animator _bossAnimator;
     [SerializeField] private Animator _gunEnemyAnimator;
     [SerializeField] private Boss boss;
-
+    [SerializeField] private PlayerAtk playerAtk;
     private void Start()
     {
         UpdateAnimationSpeed();
@@ -73,7 +73,6 @@ public class BeatManager : Singleton<BeatManager>
         if (steps == 0.5f)
         {
             boss.ChangeState(new BossIdleState(boss));
-            // Debug.Log("Boss animation triggered at step: " + steps);
         }
     }
 }

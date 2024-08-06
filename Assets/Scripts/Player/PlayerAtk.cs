@@ -19,7 +19,7 @@ public class PlayerAtk : MonoBehaviour
     {
         Attack();
     }
-
+    
     public void Attack()
     {
         Vector3 cameraDirection = _Camera.transform.forward;

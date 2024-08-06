@@ -12,7 +12,6 @@ public class SpeedUpZone : MonoBehaviour
             BeatManager.Instance.ChangeBackgroundMusic(newBackgroundMusic, newBPM);
             SpawnManager.Instance.SpawnEnemy("gun", SpawnManager.Zone.Zone2);
             SpawnManager.Instance.SpawnEnemy("gun", SpawnManager.Zone.Zone2);
-
         }
     }
 }

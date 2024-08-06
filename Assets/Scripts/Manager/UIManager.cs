@@ -26,7 +26,7 @@ public class UIManager : Singleton<UIManager>
 
     }
     public void ApplyDamageToUI()
-    {
+    { 
         if (_hpBar != null)
         {
             _hpBar.fillAmount = (float)_playerStats._currentHp / _playerStats._maxHp;

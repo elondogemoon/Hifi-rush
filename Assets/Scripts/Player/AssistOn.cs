@@ -39,4 +39,8 @@ public class AssistOn : MonoBehaviour
     {
         _assistCharacter.SetActive(true);
     }
+    public void OnBossGimmicEnd()
+    {
+        _assistCharacter.SetActive(false);
+    }
 }
